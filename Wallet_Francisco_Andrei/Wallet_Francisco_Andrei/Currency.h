@@ -4,7 +4,6 @@ class Currency
 private:
 
 public:
-	Currency();
-	~Currency();
+	//virtual something, add later
 };
 
