@@ -5,6 +5,7 @@ class Hryvnia :
 {
 public:
 	Hryvnia();
+	Hryvnia(int,int);
 	~Hryvnia();
 };
 

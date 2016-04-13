@@ -5,6 +5,7 @@ class Euro :
 {
 public:
 	Euro();
+	Euro(int,int);
 	~Euro();
 };
 

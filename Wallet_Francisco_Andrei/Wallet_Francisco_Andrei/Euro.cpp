@@ -1,7 +1,10 @@
 #include "Euro.h"
 
 
-Euro::Euro()
+Euro::Euro() : Currency("Euro", "Cent", 0, 0)
+{
+}
+Euro::Euro(int w, int f) : Currency("Euro", "Cent", w, f)
 {
 }
 
