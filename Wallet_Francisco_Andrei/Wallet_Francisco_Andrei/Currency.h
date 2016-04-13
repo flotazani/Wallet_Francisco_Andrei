@@ -1,22 +1,29 @@
 #pragma once
 #include <string>
+#include <string.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
 class Currency
 {
-private:
+protected:
 	int whole, frac;
-	std::string name, fracName;
+	std::string wholeName, fracName;
 public:
 	//sets
-	void setWhole();
-	void setFrac();
-	void setName();
-	void setFracName();
+	void setWhole(int);
+	void setFrac(int);
+	void setWholeName(string);
+	void setFracName(string);
 	//gets
 	int getWhole();
 	int getFrac();
-	std::string getName;
-	std::string getFracName();
-
+	string getWholeName();
+	string getFracName();
+	//constructors
+	Currency();
+	Currency(std::string, std::string, int, int);
+	~Currency();
 	//virtual something, add later
 };
 

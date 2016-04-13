@@ -5,6 +5,7 @@ class Dollar :
 {
 public:
 	Dollar();
+	Dollar(int, int);
 	~Dollar();
 };
 
