@@ -3,6 +3,7 @@
 
 Franc::Franc()
 {
+
 }
 
 

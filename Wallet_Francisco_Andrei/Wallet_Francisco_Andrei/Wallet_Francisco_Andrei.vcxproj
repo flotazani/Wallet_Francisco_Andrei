@@ -71,6 +71,7 @@
     <ClCompile Include="Hryvnia.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Ruble.cpp" />
+    <ClCompile Include="Wallet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Currency.h" />
@@ -79,6 +80,7 @@
     <ClInclude Include="Franc.h" />
     <ClInclude Include="Hryvnia.h" />
     <ClInclude Include="Ruble.h" />
+    <ClInclude Include="Wallet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
