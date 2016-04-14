@@ -29,12 +29,18 @@ void Currency::setFrac(int f)
 
 void Currency::setDouble(double x)
 {
-	int y, z;
+	int y;
+	double z;
 	y = x;
-	whole = y;
+	whole += y;
 	
 	z = 100*(x - y);
-	frac = z;
+	frac += z;
+	if (frac > 100)
+	{
+		frac = frac - 100;
+		whole++;
+	}
 }
 
 void Currency::setWholeName(string wn)
@@ -57,6 +63,12 @@ int Currency::getWhole()
 int Currency::getFrac()
 {
 	return frac;
+}
+
+double Currency::getDouble()
+{
+	frac /= 100;
+	return frac + whole;
 }
 
 string Currency::getWholeName()

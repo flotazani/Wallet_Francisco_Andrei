@@ -19,7 +19,7 @@ void addFunds(Wallet* & hermes)
 
 	while (!mainLoop)
 	{
-		cout <<
+		cout <<endl<<
 			"Select your currency:" << endl <<
 			"1. Dollar" << endl <<
 			"2. Euro" << endl <<
@@ -34,6 +34,7 @@ void addFunds(Wallet* & hermes)
 		{
 			mainLoop = 1;
 			subLoop = 1;
+			break;
 		}
 
 		if (selec >= 0 && selec <= 6)
@@ -62,17 +63,18 @@ void addFunds(Wallet* & hermes)
 
 		selec--;
 		hermes->ptr[selec]->setDouble(value);
+	
 	}
+	cout << endl;
 }
 
 void checkFunds(Wallet* &hermes)
 {
-	cout << hermes->ptr[0];
-	cout << hermes->ptr[1];
-	cout << hermes->ptr[2];
-	cout << hermes->ptr[3];
-	cout << hermes->ptr[4];
-
+	//cout << hermes;
+	for (int i = 0; i < 4; i++){
+		cout << hermes->ptr[i]->getWholeName() << " " << hermes->ptr[i]->getWhole() << " " << hermes->ptr[i]->getFracName() << " " << hermes->ptr[i]->getFrac() << endl;
+	}
+	cout << endl;
 }
 
 int main(){
@@ -106,7 +108,9 @@ int main(){
 			checkFunds(hermes);
 			break;
 		case '3':
+			checkFunds(hermes);
 			cout << "Goodbye!";
+			delete hermes;
 			mainLoop = true;
 			break;
 		}

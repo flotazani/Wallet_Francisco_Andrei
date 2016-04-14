@@ -96,7 +96,15 @@ Wallet::Wallet(char Curr, int wh, int fr)
 	}
 
 }
-
+ostream& operator<<(ostream& os, const Wallet* & W)
+{
+	os << W->ptr[0]->getWholeName() << " " << W->ptr[0]->getWhole() << " " << W->ptr[0]->getFracName() << " " << W->ptr[0]->getFrac() << endl <<
+		W->ptr[1]->getWholeName() << " " << W->ptr[1]->getWhole() << " " << W->ptr[1]->getFracName() << " " << W->ptr[1]->getFrac() << endl <<
+		W->ptr[2]->getWholeName() << " " << W->ptr[2]->getWhole() << " " << W->ptr[2]->getFracName() << " " << W->ptr[2]->getFrac() << endl <<
+		W->ptr[3]->getWholeName() << " " << W->ptr[3]->getWhole() << " " << W->ptr[3]->getFracName() << " " << W->ptr[3]->getFrac() << endl <<
+		W->ptr[4]->getWholeName() << " " << W->ptr[4]->getWhole() << " " << W->ptr[4]->getFracName() << " " << W->ptr[4]->getFrac() << endl;
+	return os;
+}
 Wallet::~Wallet()
 {
 	for (int i = 0; i < 4; i++)
