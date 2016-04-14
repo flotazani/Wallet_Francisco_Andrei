@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
+template <class T>
 class Currency
 {
 protected:
@@ -25,6 +26,12 @@ public:             // ???? ????????? ???????!! ONLY POSITIVE NUMBERS
 	Currency(std::string, std::string, int, int);
 	~Currency();
 	//virtual overloaded operators
+	virtual T& operator + (const T & D);
+	virtual T& operator + (const double & Do);
+	virtual T& operator - (const T & D);
+	virtual T& operator - (const double & Do);
+	virtual friend ostream& operator<<(ostream& os, const T& D);
+	virtual friend ostream& operator>>(ostream& os, const T& D);
 	//Currency& operator = (const Currency & C1);
 };
 

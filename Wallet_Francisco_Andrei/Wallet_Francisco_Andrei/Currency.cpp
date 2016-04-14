@@ -2,65 +2,69 @@
 #include <string>
 using namespace std;
 
-Currency::Currency()
+template < class T >
+Currency<T>::Currency()
 {
 	wholeName = fracName = "Generic";
 	whole = frac = 0;
 }
-
-Currency::Currency(string wn, string fn, int w, int f)
+template < class T >
+Currency<T>::Currency(string wn, string fn, int w, int f)
 {
 	wholeName = wn;
 	fracName = fn;
 	whole = w;
 	frac = f;
 }
-
-void Currency::setWhole(int w)
+template < class T >
+void Currencyv::setWhole(int w)
 {
 	whole = w;
 }
-
-void Currency::setFrac(int f)
+template < class T >
+void Currency<T>::setFrac(int f)
 {
 	frac = f;
 }
-
-void Currency::setWholeName(string wn)
+template < class T >
+void Currency<T>::setWholeName(string wn)
 {
 	wholeName = wn;
 }
-
-void Currency::setFracName(string fn)
+template < class T >
+void Currency<T>::setFracName(string fn)
 {
 	fracName = fn;
 }
 
 //gets
-int Currency::getWhole()
+template < class T >
+int Currency<T>::getWhole()
 {
 	return whole;
 }
-
-int Currency::getFrac()
+template < class T >
+int Currency<T>::getFrac()
 {
 	return frac;
 }
-string Currency::getWholeName()
+template < class T >
+string Currency<T>::getWholeName()
 {
 	return wholeName;
 }
-string Currency::getFracName()
+template < class T >
+string Currency<T>::getFracName()
 {
 	return fracName;
 }
-
-Currency &Currency::operator = (const Currency & C1)
+template < class T >
+Currency &Currency<T>::operator = (const Currency & C1)
 {
 
 }
-
-Currency::~Currency()
+template < class T >
+Currency<T>::~Currency()
 {
 }
 
