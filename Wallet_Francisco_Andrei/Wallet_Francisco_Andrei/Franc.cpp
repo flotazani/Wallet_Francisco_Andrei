@@ -15,6 +15,7 @@ Franc::Franc(double x)
 	setWhole(y);
 
 	z = x - y;
+
 	z *=100;
 	setFrac(z);
 
