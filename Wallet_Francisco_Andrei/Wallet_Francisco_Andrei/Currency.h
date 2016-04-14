@@ -11,7 +11,7 @@ class Currency
 protected:
 	int whole, frac;
 	std::string wholeName, fracName;
-public:             // ???? ????????? ???????!! ONLY POSITIVE NUMBERS
+public:
 	//sets
 	void setWhole(int);
 	void setFrac(int);
@@ -28,6 +28,6 @@ public:             // ???? ????????? ???????!! ONLY POSITIVE NUMBERS
 	Currency();
 	Currency(std::string, std::string, int, int);
 	~Currency();
-	
+
 };
 

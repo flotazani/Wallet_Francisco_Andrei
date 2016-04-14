@@ -6,22 +6,47 @@
 #include<stdlib.h>
 #include <time.h>
 using namespace std;
+/*
+addFunds:
+main loop
+	list options
+	input verify using loop that will be triggered on an error
+	if selection is 6, exit menu
 
-enum money
-{
-	Dollar, Euro, Franc, Hryvnia, Ruble
-};
+	sub-loop for value input (double)
+		input verify using loop that will be triggered on an error
+
+	send all to hermes (main wallet)
+
+checkFunds:
+for loop running 5 times
+	call name and value functions from pointer array
+
+main:
+create main wallet hermes as dynamic memory
+main loop for options
+	switch statement for options
+		case 1: call add funds
+		case 2: call checkFunds
+		case 3:
+			call checkFunds
+			delete memory (hermes)
+			set mainLoop trigger as true
+
+
+*/
+
 
 void addFunds(Wallet* & hermes)
 {
-	int selec;
-	bool mainLoop = 0, subLoop = 0;
-	double value = 0;
+	int selec = 0;
+	bool mainLoop = 0, subLoop = 0; //for whole loops
+	double value = 0; //for input
 
 
 	while (!mainLoop)
 	{
-		cout <<
+		cout << endl << 
 			"Select your currency:" << endl <<
 			"1. Dollar" << endl <<
 			"2. Euro" << endl <<
@@ -30,15 +55,27 @@ void addFunds(Wallet* & hermes)
 			"5. Ruble" << endl <<
 			"6. Exit" << endl << endl <<
 			"Your choice: ";
-		cin >> selec;
+		do
+		{
 
-		if (selec == 6)
+			while (!(cin >> selec)) //will loop only if value fails
+			{
+				cout << "Please enter a valid value!: ";
+				cin.clear();
+				cin.ignore();
+			}
+			
+			if (selec < 0 || selec > 6)
+			{
+				cout << "Please enter a valid value!: ";
+				selec = -1;
+			}
+		} while (selec < 0); //input verify
+
+		if (selec == 6) //exit
 		{
 			break;
 		}
-
-		if (selec >= 0 && selec <= 6)
-			mainLoop = 1;
 
 		while (!subLoop)
 		{
@@ -93,7 +130,7 @@ int main(){
 		atr1 += atr;
 		hermes->ptr[i]->setDouble(atr1);
 	}
-	
+
 	while (!mainLoop)
 	{
 		cout <<
@@ -108,7 +145,7 @@ int main(){
 		switch (selec)
 		{
 		default:
-			cout << "Please enter a valid selection!";
+			cout << "Please enter a valid selection!" << endl;
 			break;
 		case '1':
 			system("cls");
