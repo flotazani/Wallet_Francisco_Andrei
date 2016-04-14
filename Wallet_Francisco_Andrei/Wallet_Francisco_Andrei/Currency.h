@@ -15,7 +15,7 @@ public:
 	//sets
 	void setWhole(int);
 	void setFrac(int);
-	void setDouble(double);
+	void AddDouble(double);
 	void setWholeName(string);
 	void setFracName(string);
 	//gets
