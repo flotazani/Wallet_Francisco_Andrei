@@ -17,7 +17,7 @@ Currency<T>::Currency(string wn, string fn, int w, int f)
 	frac = f;
 }
 template < class T >
-void Currency::setWhole(int w)
+void Currency<T>::setWhole(int w)
 {
 	whole = w;
 }
@@ -58,11 +58,7 @@ string Currency<T>::getFracName()
 {
 	return fracName;
 }
-template < class T >
-Currency &Currency<T>::operator = (const Currency & C1)
-{
-	return 0;
-}
+
 template < class T >
 Currency<T>::~Currency()
 {
