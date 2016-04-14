@@ -31,7 +31,7 @@ void Currency::setFrac(int f)
 	frac = f;
 }
 
-void Currency::AddDouble(double x)
+void Currency::addDouble(double x)
 {
 	//separates double into frac and whole
 	int y;

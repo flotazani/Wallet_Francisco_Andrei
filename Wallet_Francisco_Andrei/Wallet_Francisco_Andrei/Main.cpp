@@ -46,7 +46,7 @@ void addFunds(Wallet* hermes)
 	while (!mainLoop)
 	{
 		system("cls");
-		cout << endl << 
+		cout << 
 			"Select your currency:" << endl <<
 			"1. Dollar" << endl <<
 			"2. Euro" << endl <<
@@ -99,8 +99,8 @@ void addFunds(Wallet* hermes)
 		}
 
 		selec--;
-		hermes->ptr[selec]->AddDouble(value);
-	
+		hermes->ptr[selec]->addDouble(value);
+		cout << "Added!";
 	}
 	cout << endl;
 }
@@ -115,7 +115,7 @@ void RemoveFunds(Wallet*  hermes)
 	while (!mainLoop)
 	{
 		system("cls");
-		cout << endl <<
+		cout <<
 			"Select your currency:" << endl <<
 			"1. Dollar" << endl <<
 			"2. Euro" << endl <<
@@ -173,16 +173,18 @@ void RemoveFunds(Wallet*  hermes)
 			value = hermes->ptr[selec]->getDouble() - value + 1;
 			hermes->ptr[selec]->setWhole(0);
 			hermes->ptr[selec]->setFrac(0);
-			hermes->ptr[selec]->AddDouble(value);
+			hermes->ptr[selec]->addDouble(value);
 		}
 		else { cout << "Not enough money in the wallet."; }
+
+		cout << "Substracted!";
 	}
 	cout << endl;
 }
 
 void checkFunds(Wallet* hermes)
 {
-	cout << hermes << endl;
+	cout << setprecision(2) << fixed << hermes << endl;
 }
 
 int main(){
@@ -199,7 +201,7 @@ int main(){
 	for (int i = 0; i <= 4; i++)
 	{
 		atr1 += atr; //merge numbers
-		hermes->ptr[i]->AddDouble(atr1);
+		hermes->ptr[i]->addDouble(atr1);
 	}
 
 	while (!mainLoop)
@@ -212,7 +214,7 @@ int main(){
 			"4: Exit" << endl << endl <<
 			"Your choice: ";
 
-		cin.get(selec);
+		cin >> selec;
 
 		switch (selec)
 		{
