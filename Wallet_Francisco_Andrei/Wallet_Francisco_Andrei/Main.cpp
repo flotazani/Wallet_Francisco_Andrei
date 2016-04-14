@@ -69,7 +69,7 @@ void addFunds(Wallet* & hermes)
 }
 
 void checkFunds(Wallet* &hermes)
-{
+	{
 	//cout << hermes;
 	for (int i = 0; i < 4; i++){
 		cout << hermes->ptr[i]->getWholeName() << " " << hermes->ptr[i]->getWhole() << " " << hermes->ptr[i]->getFracName() << " " << hermes->ptr[i]->getFrac() << endl;
@@ -102,10 +102,14 @@ int main(){
 			cout << "Please enter a valid selection!";
 			break;
 		case '1':
+			system("cls");
 			 addFunds(hermes);
+			 system("cls");
 			break;
 		case '2':
+			system("cls");
 			checkFunds(hermes);
+			system("cls");
 			break;
 		case '3':
 			checkFunds(hermes);
