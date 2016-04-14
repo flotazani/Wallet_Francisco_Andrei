@@ -5,6 +5,7 @@ class Hryvnia :
 {
 public:
 	Hryvnia();
+	Hryvnia(double);
 	Hryvnia(int,int);
 	~Hryvnia();
 	Hryvnia& operator + (const Hryvnia & H);

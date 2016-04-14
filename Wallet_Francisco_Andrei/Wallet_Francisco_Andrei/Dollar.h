@@ -5,6 +5,7 @@ class Dollar :
 {
 public:
 	Dollar();
+	Dollar(double);
 	Dollar(int, int);
 	~Dollar();
 	Dollar& operator + (const Dollar & D);
