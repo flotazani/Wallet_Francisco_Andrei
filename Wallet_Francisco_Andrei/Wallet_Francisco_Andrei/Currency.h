@@ -27,13 +27,12 @@ public:             // ???? ????????? ???????!! ONLY POSITIVE NUMBERS
 	Currency(std::string, std::string, int, int);
 	~Currency();
 	//virtual overloaded operators
-	T& operator + (const T & D);
-	T& operator + (const double & Do);
-	T& operator - (const T & D);
-	T& operator - (const double & Do);
-	friend ostream& operator<<(ostream& os, const T& D);
-	friend istream& operator>>(istream& is, const T& D);
-	Currency &Currency<T>::operator = (const Currency & C1);
+	virtual T& operator + (const T & D);
+	virtual T& operator + (const double & Do);
+	virtual T& operator - (const T & D);
+	virtual T& operator - (const double & Do);
+	//virtual friend ostream& operator<<(ostream& os, const T& D);
+	//virtual friend istream& operator>>(istream& is, const T& D);
 	//Currency& operator = (const Currency & C1);
 };
 
