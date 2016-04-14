@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Currency.h"
 #include <string.h>
 #include <iomanip>
 #include "Wallet.h"
@@ -9,9 +10,9 @@ enum money
 	Dollar, Euro, Franc, Hryvnia, Ruble
 };
 
-void addFunds(Wallet & hermes)
+void addFunds(Wallet* & hermes)
 {
-	char selec;
+	int selec;
 	bool mainLoop = 0, subLoop = 0;
 	double value = 0;
 
@@ -60,20 +61,27 @@ void addFunds(Wallet & hermes)
 		}
 
 		selec--;
-		hermes.addMoney(selec, value);
+		hermes->ptr[selec]->setDouble(value);
 	}
 }
 
-void checkFunds(Wallet &hermes)
+void checkFunds(Wallet* &hermes)
 {
-	hermes.ptr
+	cout << hermes->ptr[0];
+	cout << hermes->ptr[1];
+	cout << hermes->ptr[2];
+	cout << hermes->ptr[3];
+	cout << hermes->ptr[4];
+
 }
 
 int main(){
 	char selec;
 	bool mainLoop = 0;
+	//Currency wall;
+	//wall.setDouble(14.2);
 	//Wallet mainWallet;
-	Wallet hermes;
+	Wallet *hermes = new Wallet;
 
 	while (!mainLoop)
 	{

@@ -33,8 +33,7 @@ void Currency::setDouble(double x)
 	y = x;
 	whole = y;
 	
-	z = x - y;
-	z *= 100;
+	z = 100*(x - y);
 	frac = z;
 }
 

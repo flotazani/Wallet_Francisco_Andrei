@@ -14,8 +14,7 @@ Franc::Franc(double x) : Currency("Franc", "Rappen", 0, 0)
 	y = x;
 	setWhole(y);
 
-	z = x - y;
-	z *= 100;
+	z = 100 * (x - y);
 	setFrac(z);
 
 }
@@ -52,8 +51,7 @@ Franc& Franc::operator + (const double & Fr)
 	y = x;
 	temp.setWhole(y);
 
-	z = x - y;
-	z *= 100;
+	z = 100 * (x - y);
 	setFrac(z);
 
 	return temp;

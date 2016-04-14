@@ -14,8 +14,7 @@ Hryvnia::Hryvnia(double x) : Currency("Hryvnia", "Cent", 0, 0)
 	y = x;
 	setWhole(y);
 
-	z = x - y;
-	z *= 100;
+	z = 100 * (x - y);
 	setFrac(z);
 
 }
@@ -52,8 +51,7 @@ Hryvnia& Hryvnia::operator + (const double & Hr)
 	y = x;
 	temp.setWhole(y);
 
-	z = x - y;
-	z *= 100;
+	z = 100 * (x - y);
 	setFrac(z);
 
 	return temp;
