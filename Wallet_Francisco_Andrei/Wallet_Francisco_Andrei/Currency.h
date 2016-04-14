@@ -15,6 +15,7 @@ public:             // ???? ????????? ???????!! ONLY POSITIVE NUMBERS
 	//sets
 	void setWhole(int);
 	void setFrac(int);
+	void setDouble(double);
 	void setWholeName(string);
 	void setFracName(string);
 	//gets

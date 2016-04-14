@@ -27,6 +27,17 @@ void Currency::setFrac(int f)
 	frac = f;
 }
 
+void Currency::setDouble(double x)
+{
+	int y, z;
+	y = x;
+	whole = y;
+	
+	z = x - y;
+	z *= 100;
+	frac = z;
+}
+
 void Currency::setWholeName(string wn)
 {
 	wholeName = wn;
