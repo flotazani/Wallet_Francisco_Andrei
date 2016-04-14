@@ -99,7 +99,7 @@ Wallet::Wallet(int Curr, int wh, int fr)
 	}
 
 }
-ostream& operator<<(ostream& os, const Wallet* & W)
+ostream& operator<<(ostream& os, const Wallet* W)
 { 
 	// call name and value functions for all currencies
 	os << W->ptr[0]->getWholeName() << " " << W->ptr[0]->getWhole() << " " << W->ptr[0]->getFracName() << " " << W->ptr[0]->getFrac() << endl <<

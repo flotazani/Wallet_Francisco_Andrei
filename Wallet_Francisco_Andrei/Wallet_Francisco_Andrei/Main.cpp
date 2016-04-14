@@ -107,11 +107,7 @@ void addFunds(Wallet* & hermes)
 
 void checkFunds(Wallet* &hermes)
 {
-	//cout << hermes;
-	for (int i = 0; i <= 4; i++){
-		cout << hermes->ptr[i]->getWholeName() << " " << hermes->ptr[i]->getWhole() << " " << hermes->ptr[i]->getFracName() << " " << hermes->ptr[i]->getFrac() << endl;
-	}
-	cout << endl;
+	cout << hermes << endl;
 }
 
 int main(){

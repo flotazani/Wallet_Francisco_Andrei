@@ -14,7 +14,7 @@ public:
 	Wallet();
 	Wallet(int, double);
 	Wallet(int, int, int);
-	friend ostream& operator<<(ostream& os, const Wallet* & W);
+	friend ostream& operator<<(ostream& os, const Wallet* W);
 	~Wallet();
 };
 
