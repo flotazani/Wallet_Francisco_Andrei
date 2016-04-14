@@ -7,6 +7,20 @@ Dollar::Dollar() : Currency("Dollar","Cent",0 , 0)
 
 Dollar::Dollar(int w, int f ) : Currency("Dollar", "Cent", w, f)
 {
+	
+}
+
+Dollar::Dollar(double x) : Currency("Dollar", "Cent", 0, 0)
+{
+	int y;
+	double z;
+	y = x;
+	setWhole(y);
+
+	z = x - y;
+	z *= 100;
+	setFrac(z);
+
 }
 
 Dollar::~Dollar()
@@ -25,7 +39,9 @@ Dollar& Dollar::operator+(const Dollar &D)
 	}
 	return temp;
 }
-Dollar& Dollar::operator + (const double & Do){}
+Dollar& Dollar::operator + (const double & Do)
+{
+}
 
 Dollar& Dollar::operator - (const Dollar & D)
 {

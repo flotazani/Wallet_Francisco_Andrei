@@ -8,6 +8,20 @@ Euro::Euro(int w, int f) : Currency("Euro", "Cent", w, f)
 {
 }
 
+Euro::Euro(double x) : Currency("Euro", "Cent", 0, 0)
+{
+	int y;
+	double z;
+	y = x;
+	setWhole(y);
+
+	z = x - y;
+	z *= 100;
+	setFrac(z);
+
+}
+
+
 Euro::~Euro()
 {
 }

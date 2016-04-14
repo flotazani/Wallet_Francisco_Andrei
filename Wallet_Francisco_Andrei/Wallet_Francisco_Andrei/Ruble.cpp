@@ -8,6 +8,19 @@ Ruble::Ruble(int w, int f):Currency("Ruble", "Kopeika", w, f)
 {
 }
 
+Ruble::Ruble(double x) : Currency("Ruble", "Cent", 0, 0)
+{
+	int y;
+	double z;
+	y = x;
+	setWhole(y);
+
+	z = x - y;
+	z *= 100;
+	setFrac(z);
+
+}
+
 Ruble::~Ruble()
 {
 }

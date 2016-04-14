@@ -8,6 +8,19 @@ Hryvnia::Hryvnia(int w, int f) : Currency("Hryvnia", "Kopeika", w, f)
 {
 }
 
+Hryvnia::Hryvnia(double x) : Currency("Hryvnia", "Cent", 0, 0)
+{
+	int y;
+	double z;
+	y = x;
+	setWhole(y);
+
+	z = x - y;
+	z *= 100;
+	setFrac(z);
+
+}
+
 Hryvnia::~Hryvnia()
 {
 }

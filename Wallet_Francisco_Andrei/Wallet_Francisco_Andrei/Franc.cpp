@@ -7,16 +7,15 @@ Franc::Franc() : Currency("Franc", "Cent", 0, 0)// cent???
 Franc::Franc(int w, int f) : Currency("Franc", "Cent", w, f)
 {
 }
-Franc::Franc(double x)
+Franc::Franc(double x) : Currency("Franc", "Cent", 0, 0)
 {
 	int y;
 	double z;
 	y = x;
 	setWhole(y);
-
+	
 	z = x - y;
-
-	z *=100;
+	z *= 100;
 	setFrac(z);
 
 }
@@ -38,7 +37,9 @@ Franc& Franc::operator + (const Franc & F)
 	return temp;
 }
 
-Franc& Franc::operator + (const double & Fr){}
+Franc& Franc::operator + (const double & Fr)
+{
+}
 
 Franc& Franc::operator - (const Franc & F)
 {

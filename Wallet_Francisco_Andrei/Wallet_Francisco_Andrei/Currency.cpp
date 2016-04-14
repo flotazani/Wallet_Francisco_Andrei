@@ -57,7 +57,7 @@ string Currency::getFracName()
 
 Currency &Currency::operator = (const Currency & C1)
 {
-
+	return 0;
 }
 
 Currency::~Currency()
