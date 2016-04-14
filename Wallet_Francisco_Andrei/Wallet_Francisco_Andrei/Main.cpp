@@ -171,16 +171,17 @@ void RemoveFunds(Wallet*  hermes)
 		selec--;
 		w = value;
 		f = value * 100 - w * 100;
-		temp = f;
-		temp = temp / 100;
-		if (hermes->ptr[selec]->getDouble() - value >= 0)
-		{
-			value = hermes->ptr[selec]->getDouble() - w - temp;
-			hermes->ptr[selec]->setWhole(0);
-			hermes->ptr[selec]->setFrac(0);
-			hermes->ptr[selec]->addDouble(value);
+
+		w = hermes->ptr[selec]->getWhole() - w;
+		f = hermes->ptr[selec]->getFrac() - f;
+
+		if (f < 0){ f = 100 + f; w--; }
+		if (w < 0){ cout << "invalid operation. Not enough money in the wallet." << endl; }
+		else{
+			hermes->ptr[selec]->setWhole(w);
+			hermes->ptr[selec]->setFrac(f);
 		}
-		else { cout << "Not enough money in the wallet."; }
+
 
 		cout << "Substracted!";
 	}
