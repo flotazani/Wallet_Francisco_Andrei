@@ -29,8 +29,8 @@ Euro::~Euro()
 Euro& Euro::operator + (const Euro & E)
 {
 	Euro temp;
-	temp.whole = whole + E.whole;
-	temp.frac = frac + E.frac;
+	temp.whole = this->whole + E.whole;
+	temp.frac = this->frac + E.frac;
 	if (temp.frac >= 100)
 	{
 		temp.frac = temp.frac % 100;
@@ -43,7 +43,7 @@ Euro& Euro::operator + (const double & Eu)
 	Euro temp;
 	int y, z;
 	double x;
-	x += whole;
+	x += this->whole;
 	x += (frac * 100);
 
 	if (x <= 0 && Eu <= 0)
@@ -65,8 +65,8 @@ Euro& Euro::operator + (const double & Eu)
 Euro& Euro::operator - (const Euro & E)
 {
 	Euro temp;
-	temp.whole = temp.whole - E.whole;
-	temp.frac = temp.frac - E.frac;
+	temp.whole = this->whole - E.whole;
+	temp.frac = this->frac - E.frac;
 	if (temp.frac <= 0){ temp.frac = 100 + temp.frac; temp.whole = temp.whole - 1; }
 	if (temp.whole <= 0){ temp.whole = 0; cout << "invalid operation/n"; }
 	return temp;
@@ -99,7 +99,6 @@ Euro& Euro::operator - (const double & Eu)
 	
 	return temp;
 }
-Euro& Euro::operator - (const double & Eu){}
 
 ostream& operator<<(ostream& os, const Euro& E)
 {
@@ -110,4 +109,5 @@ istream& operator>>(istream& is, const Euro& E)
 {
 	is >> E.whole;
 	is >> E.frac;
+	return is;
 }

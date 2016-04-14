@@ -28,8 +28,8 @@ Ruble::~Ruble()
 Ruble& Ruble::operator + (const Ruble & R)
 {
 	Ruble temp;
-	temp.whole = whole + R.whole;
-	temp.frac = frac + R.frac;
+	temp.whole = this->whole + R.whole;
+	temp.frac = this->frac + R.frac;
 	if (temp.frac >= 100)
 	{
 		temp.frac = temp.frac % 100;
@@ -64,8 +64,8 @@ Ruble& Ruble::operator + (const double & Ru)
 Ruble& Ruble::operator - (const Ruble & R)
 {
 	Ruble temp;
-	temp.whole = temp.whole - R.whole;
-	temp.frac = temp.frac - R.frac;
+	temp.whole = this->whole - R.whole;
+	temp.frac = this->frac - R.frac;
 	if (temp.frac <= 0){ temp.frac = 100 + temp.frac; temp.whole = temp.whole - 1; }
 	if (temp.whole <= 0){ temp.whole = 0; cout << "invalid operation/n"; }
 	return temp;
@@ -98,7 +98,6 @@ Ruble& Ruble::operator - (const double & Ru)
 	return temp;
 
 }
-Ruble& Ruble::operator - (const double & Ru){}
 
 ostream& operator<<(ostream& os, const Ruble& R)
 {
@@ -109,4 +108,5 @@ istream& operator>>(istream& is, const Ruble& R)
 {
 	is >> R.whole;
 	is >> R.frac;
+	return is;
 }

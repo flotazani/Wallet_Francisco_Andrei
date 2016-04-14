@@ -28,8 +28,8 @@ Hryvnia::~Hryvnia()
 Hryvnia& Hryvnia::operator + (const Hryvnia & H)
 {
 	Hryvnia temp;
-	temp.whole = whole + H.whole;
-	temp.frac = frac + H.frac;
+	temp.whole = this->whole + H.whole;
+	temp.frac = this->frac + H.frac;
 	if (temp.frac >= 100)
 	{
 		temp.frac = temp.frac % 100;
@@ -64,8 +64,8 @@ Hryvnia& Hryvnia::operator + (const double & Hr)
 Hryvnia& Hryvnia::operator - (const Hryvnia & H)
 {
 	Hryvnia temp;
-	temp.whole = temp.whole - H.whole;
-	temp.frac = temp.frac - H.frac;
+	temp.whole = this->whole - H.whole;
+	temp.frac = this->frac - H.frac;
 	if (temp.frac <= 0){ temp.frac = 100 + temp.frac; temp.whole = temp.whole - 1; }
 	if (temp.whole <= 0){ temp.whole = 0; cout << "invalid operation/n"; }
 	return temp;
@@ -97,8 +97,7 @@ Hryvnia& Hryvnia::operator - (const double & Hr)
 		cout << "invalid operation" << endl;
 
 	return temp;
-
-Hryvnia& Hryvnia::operator - (const double & Hr){}
+}
 ostream& operator<<(ostream& os, const Hryvnia& H)
 {
 	os << H.whole << " Hryvnia " << H.frac << " Kopeika" << endl;
@@ -108,4 +107,5 @@ istream& operator>>(istream& is, const Hryvnia& H)
 {
 	is >> H.whole;
 	is >> H.frac;
+	return is;
 }
