@@ -3,6 +3,7 @@
 #include <string.h>
 #include <iostream>
 #include <iomanip>
+#include <math.h>
 using namespace std;
 class Currency
 {

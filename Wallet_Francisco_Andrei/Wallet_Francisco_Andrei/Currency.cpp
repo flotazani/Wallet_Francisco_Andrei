@@ -55,10 +55,10 @@ string Currency::getFracName()
 	return fracName;
 }
 
-Currency operator + (const Currency & C1, const Currency & C2)
-{
-
-}
+//Currency operator + (const Currency & C1, const Currency & C2)
+//{
+//
+//}
 
 Currency::~Currency()
 {
