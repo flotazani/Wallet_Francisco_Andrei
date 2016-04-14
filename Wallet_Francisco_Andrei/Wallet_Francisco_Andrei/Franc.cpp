@@ -38,25 +38,25 @@ Franc& Franc::operator + (const Franc & F)
 }
 Franc& Franc::operator + (const double & Fr)
 {
-	Franc temp;
-	int y, z;
-	double x = 0;
-	x += this->whole;
-	x += (this->frac * 100);
+	Franc temp; //currency class
+	int y, z; //temp holders
+	double x = 0; 
+	x += this->whole; //add the whole numb to x
+	x += (this->frac * 100); //multiply the decimal by 100 and add it to x
 
 	if (x <= 0 && Fr <= 0)
-		x += Fr;
+		x += Fr; //if both doubles are equal or bigger to 0, add them to x
 	else
 		cout << "invalid operation" << endl;
 
-	y = x;
-	temp.setWhole(y);
+	y = x; //will cut off and only leave the whole
+	temp.setWhole(y); //send it
 
-	z = x - y;
-	z *= 100;
-	setFrac(z);
+	z = x - y; //subtract whole and leave only decimal
+	z *= 100; //mulitply decimal by 100 to make it whole
+	setFrac(z); // send it
 
-	return temp;
+	return temp;//return temp currency class
 }
 
 Franc& Franc::operator - (const Franc & F)

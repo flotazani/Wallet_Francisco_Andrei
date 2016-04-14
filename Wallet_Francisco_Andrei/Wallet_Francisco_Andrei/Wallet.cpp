@@ -97,7 +97,6 @@ Wallet::Wallet(int Curr, int wh, int fr)
 
 }
 
-
 Wallet::~Wallet()
 {
 	for (int i = 0; i < 4; i++)

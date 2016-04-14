@@ -31,8 +31,7 @@ void addFunds(Wallet &hermes)
 
 		if (selec == 6)
 		{
-			mainLoop = 1;
-			subLoop = 1;
+			break;
 		}
 
 		if (selec >= 0 && selec <= 6)
@@ -67,9 +66,9 @@ void addFunds(Wallet &hermes)
 void checkFunds(Wallet &hermes)
 {
 	string currencies[5] = { "Dollar", "Euro", "Franc", "Hryvnia", "Ruble" };
-	for (int c = 0; c < 4; c++)
+	for (int c = 0; c < 5; c++)
 	{
-		cout << currencies[c] << ": " << hermes.ptr[c]->getDouble() << endl;
+		cout << currencies[c] << ": " <<setprecision(2)<<fixed<< hermes.ptr[c]->getDouble() << endl;
 	}
 	cout << endl;
 }
@@ -104,7 +103,6 @@ int main(){
 		case '2':
 			system("cls");
 			checkFunds(hermes);
-			system("cls");
 			break;
 		case '3':
 			cout << "Goodbye!";
