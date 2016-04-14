@@ -74,7 +74,6 @@ void checkFunds(Wallet x)
 int main(){
 	char selec;
 	bool mainLoop = 0;
-	Wallet mainWallet;
 
 
 	while (!mainLoop)
@@ -94,10 +93,9 @@ int main(){
 			cout << "Please enter a valid selection!";
 			break;
 		case '1':
-			mainWallet = addFunds();
+			addFunds();
 			break;
 		case '2':
-			checkFunds(mainWallet);
 			break;
 		case '3':
 			cout << "Goodbye!";
