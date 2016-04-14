@@ -52,7 +52,7 @@ Euro& Euro::operator + (const double & Eu)
 	y = x;
 	temp.setWhole(y);
 
-	z = 100 * (x - y);
+	z = 100 * x - 100 * y;
 	setFrac(z);
 
 	return temp;
@@ -85,7 +85,7 @@ Euro& Euro::operator - (const double & Eu)
 		y = x;
 		temp.setWhole(y);
 
-		z = 100 * (x - y);
+		z = 100 * x - 100 * y;
 		setFrac(z);
 	}
 	else

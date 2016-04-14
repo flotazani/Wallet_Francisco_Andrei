@@ -1,8 +1,10 @@
 #include <iostream>
-#include "Currency.h"
+//#include "Currency.h"
 #include <string.h>
 #include <iomanip>
 #include "Wallet.h"
+#include<stdlib.h>
+#include <time.h>
 using namespace std;
 
 enum money
@@ -69,7 +71,7 @@ void addFunds(Wallet* & hermes)
 void checkFunds(Wallet* &hermes)
 {
 	//cout << hermes;
-	for (int i = 0; i < 4; i++){
+	for (int i = 0; i <= 4; i++){
 		cout << hermes->ptr[i]->getWholeName() << " " << hermes->ptr[i]->getWhole() << " " << hermes->ptr[i]->getFracName() << " " << hermes->ptr[i]->getFrac() << endl;
 	}
 	cout << endl;
@@ -82,7 +84,12 @@ int main(){
 	//wall.setDouble(14.2);
 	//Wallet mainWallet;
 	Wallet *hermes = new Wallet;
-
+	 crand(time(0));
+	for (int i = 0; i <= 4; i++)
+	{
+		hermes->ptr[i]->setDouble(value);
+	}
+	
 	while (!mainLoop)
 	{
 		cout <<
@@ -105,7 +112,7 @@ int main(){
 			 system("cls");
 			break;
 		case '2':
-			//system("cls");
+			system("cls");
 			checkFunds(hermes);
 			break;
 		case '3':
