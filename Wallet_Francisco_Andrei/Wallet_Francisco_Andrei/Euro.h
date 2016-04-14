@@ -1,7 +1,7 @@
 #pragma once
 #include "Currency.h"
 class Euro :
-	public Currency
+	public Currency <Euro>
 {
 public:
 	Euro();
