@@ -36,8 +36,7 @@ main loop for options
 
 */
 
-
-void addFunds(Wallet* & hermes)
+void addFunds(Wallet* hermes)
 {
 	int selec = 0;
 	bool mainLoop = 0, subLoop = 0; //for whole loops
@@ -46,6 +45,7 @@ void addFunds(Wallet* & hermes)
 
 	while (!mainLoop)
 	{
+		system("cls");
 		cout << endl << 
 			"Select your currency:" << endl <<
 			"1. Dollar" << endl <<
@@ -99,13 +99,88 @@ void addFunds(Wallet* & hermes)
 		}
 
 		selec--;
-		hermes->ptr[selec]->setDouble(value);
+		hermes->ptr[selec]->AddDouble(value);
 	
 	}
 	cout << endl;
 }
 
-void checkFunds(Wallet* &hermes)
+void RemoveFunds(Wallet*  hermes)
+{
+	int selec = 0;
+	bool mainLoop = 0, subLoop = 0; //for whole loops
+	double value = 0; //for input
+
+
+	while (!mainLoop)
+	{
+		system("cls");
+		cout << endl <<
+			"Select your currency:" << endl <<
+			"1. Dollar" << endl <<
+			"2. Euro" << endl <<
+			"3. Franc" << endl <<
+			"4. Hryvnia" << endl <<
+			"5. Ruble" << endl <<
+			"6. Exit" << endl << endl <<
+			"Your choice: ";
+		do
+		{
+
+			while (!(cin >> selec)) //will loop only if value fails
+			{
+				cout << "Please enter a valid value!: ";
+				cin.clear();
+				cin.ignore();
+			}
+
+			if (selec < 0 || selec > 6)
+			{
+				cout << "Please enter a valid value!: ";
+				selec = -1;
+			}
+		} while (selec < 0); //input verify
+
+		if (selec == 6) //exit
+		{
+			break;
+		}
+
+		while (!subLoop)
+		{
+			cout << endl;
+			cout << "Input a value: ";
+
+			do
+			{
+				if (value < 0)
+					cout << "Please enter a value of 0 or higher!";
+				while (!(cin >> value)) //will loop only if value fails
+				{
+					cout << "Please enter a valid value!";
+					cin.clear();
+					cin.ignore();
+				}
+
+			} while (value < 0);
+
+			subLoop = 1;
+		}
+
+		selec--;
+		if (hermes->ptr[selec]->getDouble() - value >= 0)
+		{
+			value = hermes->ptr[selec]->getDouble() - value + 1;
+			hermes->ptr[selec]->setWhole(0);
+			hermes->ptr[selec]->setFrac(0);
+			hermes->ptr[selec]->AddDouble(value);
+		}
+		else { cout << "Not enough money in the wallet."; }
+	}
+	cout << endl;
+}
+
+void checkFunds(Wallet* hermes)
 {
 	cout << hermes << endl;
 }
@@ -124,7 +199,7 @@ int main(){
 	for (int i = 0; i <= 4; i++)
 	{
 		atr1 += atr; //merge numbers
-		hermes->ptr[i]->setDouble(atr1);
+		hermes->ptr[i]->AddDouble(atr1);
 	}
 
 	while (!mainLoop)
@@ -132,8 +207,9 @@ int main(){
 		cout <<
 			"Welcome to your Wallet" << endl <<
 			"1: Add funds" << endl <<
-			"2: Check Funds" << endl <<
-			"3: Exit" << endl << endl <<
+			"2: Remove funds" << endl <<
+			"3: Check Funds" << endl <<
+			"4: Exit" << endl << endl <<
 			"Your choice: ";
 
 		cin.get(selec);
@@ -150,9 +226,13 @@ int main(){
 			break;
 		case '2':
 			system("cls");
-			checkFunds(hermes);
+			RemoveFunds(hermes);
 			break;
 		case '3':
+			system("cls");
+			checkFunds(hermes);
+			break;
+		case '4':
 			checkFunds(hermes);
 			cout << "Goodbye!";
 			delete hermes;
