@@ -69,6 +69,7 @@ double Currency::getDouble()
 {
 	double x;
 	x = frac / 100;
+	cout << x;
 	return x + whole;
 }
 
@@ -81,7 +82,6 @@ string Currency::getFracName()
 {
 	return fracName;
 }
-
 
 Currency::~Currency()
 {

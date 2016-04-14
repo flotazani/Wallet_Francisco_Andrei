@@ -106,7 +106,6 @@ ostream& operator<<(ostream& os, const Wallet* & W)
 	return os;
 }
 
-
 Wallet::~Wallet()
 {
 	for (int i = 0; i < 4; i++)
