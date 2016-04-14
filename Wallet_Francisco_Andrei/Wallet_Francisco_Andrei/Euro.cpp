@@ -40,7 +40,7 @@ Euro& Euro::operator + (const double & Eu)
 {
 	Euro temp;
 	int y, z;
-	double x;
+	double x = 0;
 	x += this->whole;
 	x += (this->frac * 100);
 
@@ -72,7 +72,7 @@ Euro& Euro::operator - (const double & Eu)
 {
 	Euro temp;
 	int y, z;
-	double x;
+	double x = 0;
 	x += this->whole;
 	x += (this->frac * 100);
 
@@ -94,6 +94,13 @@ Euro& Euro::operator - (const double & Eu)
 		cout << "invalid operation" << endl;
 	
 	return temp;
+}
+
+Euro& Euro::operator = (const Euro & E)
+{
+	this->whole = E.whole;
+	this->frac = E.frac;
+	return *this;
 }
 
 ostream& operator<<(ostream& os, const Euro& E)

@@ -1,7 +1,7 @@
 #pragma once
 #include "Currency.h"
 class Hryvnia :
-	public Currency <Hryvnia>
+	public Currency 
 {
 public:
 	Hryvnia();
@@ -12,6 +12,7 @@ public:
 	Hryvnia& operator + (const double & Hr);
 	Hryvnia& operator - (const Hryvnia & H);
 	Hryvnia& operator - (const double & Hr);
+	Hryvnia& operator = (const Hryvnia & H);
 	friend ostream& operator<<(ostream& os, const Hryvnia& H);
 	friend istream& operator>>(istream& is, const Hryvnia& H);
 };

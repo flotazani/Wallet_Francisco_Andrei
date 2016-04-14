@@ -40,7 +40,7 @@ Franc& Franc::operator + (const double & Fr)
 {
 	Franc temp;
 	int y, z;
-	double x;
+	double x = 0;
 	x += this->whole;
 	x += (this->frac * 100);
 
@@ -72,7 +72,7 @@ Franc& Franc::operator - (const double & Fr)
 {
 	Franc temp;
 	int y, z;
-	double x;
+	double x = 0;
 	x += this->whole;
 	x += (this->frac * 100);
 
@@ -94,6 +94,13 @@ Franc& Franc::operator - (const double & Fr)
 		cout << "invalid operation" << endl;
 
 	return temp;
+}
+
+Franc& Franc::operator = (const Franc & F)
+{
+	this->whole = F.whole;
+	this->frac = F.frac;
+	return *this;
 }
 
 ostream& operator<<(ostream& os, const Franc& F)

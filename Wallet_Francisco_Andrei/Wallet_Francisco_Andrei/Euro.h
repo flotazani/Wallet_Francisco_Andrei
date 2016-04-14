@@ -1,7 +1,7 @@
 #pragma once
 #include "Currency.h"
 class Euro :
-	public Currency <Euro>
+	public Currency
 {
 public:
 	Euro();
@@ -12,6 +12,7 @@ public:
 	Euro& operator + (const double & Eu);
 	Euro& operator - (const Euro & E);
 	Euro& operator - (const double & Eu);
+	Euro& operator = (const Euro & E);
 	friend ostream& operator<<(ostream& os, const Euro& E);
 	friend istream& operator>>(istream& is, const Euro& E);
 };

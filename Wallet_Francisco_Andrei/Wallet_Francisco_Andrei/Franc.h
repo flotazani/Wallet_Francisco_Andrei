@@ -1,7 +1,7 @@
 #pragma once
 #include "Currency.h"
 class Franc :
-	public Currency <Franc>
+	public Currency 
 {
 public:
 	Franc();
@@ -12,6 +12,7 @@ public:
 	Franc& operator + (const double & Fr);
 	Franc& operator - (const Franc & F);
 	Franc& operator - (const double & Fr);
+	Franc& operator = (const Franc & F);
 	friend ostream& operator<<(ostream& os, const Franc& F);
 	friend istream& operator>>(istream& is, const Franc& F);
 };												 
