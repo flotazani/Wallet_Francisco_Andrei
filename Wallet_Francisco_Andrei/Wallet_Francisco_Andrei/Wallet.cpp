@@ -99,11 +99,12 @@ Wallet::Wallet(char Curr, int wh, int fr)
 
 void Wallet::addMoney(char x, double y)
 {
-	Wallet::Wallet(x, y);
+	ptr[x]-> y);
 }
 void Wallet::addMoney(char x, int y, int z)
 {
-	Wallet::Wallet(x, y, z);
+	ptr[x]->setWhole(y);
+	ptr[x]->setWhole(z);
 }
 
 
