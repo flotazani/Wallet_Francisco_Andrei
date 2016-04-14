@@ -108,8 +108,9 @@ void addFunds(Wallet* hermes)
 void RemoveFunds(Wallet*  hermes)
 {
 	int selec = 0;
+	int w, f;
 	bool mainLoop = 0, subLoop = 0; //for whole loops
-	double value = 0; //for input
+	double value = 0,temp; //for input
 
 
 	while (!mainLoop)
@@ -168,9 +169,13 @@ void RemoveFunds(Wallet*  hermes)
 		}
 
 		selec--;
+		w = value;
+		f = value * 100 - w * 100;
+		temp = f;
+		temp = temp / 100;
 		if (hermes->ptr[selec]->getDouble() - value >= 0)
 		{
-			value = hermes->ptr[selec]->getDouble() - value + 1;
+			value = hermes->ptr[selec]->getDouble() - w - temp;
 			hermes->ptr[selec]->setWhole(0);
 			hermes->ptr[selec]->setFrac(0);
 			hermes->ptr[selec]->AddDouble(value);
