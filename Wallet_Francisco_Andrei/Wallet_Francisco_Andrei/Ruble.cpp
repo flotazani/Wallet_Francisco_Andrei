@@ -3,12 +3,19 @@
 
 Ruble::Ruble() : Currency("Ruble", "Kopeika", 0, 0)
 {
+	//sets default name and values as 0
+
 }
+
 Ruble::Ruble(int w, int f):Currency("Ruble", "Kopeika", w, f)
 {
+	//sets passed values and default name
+
 }
 Ruble::Ruble(double x) : Currency("Ruble", "Cent", 0, 0)
 {
+	//separates double and sets it to frac and whole along with name
+
 	int y;
 	double z;
 	y = x;
@@ -25,7 +32,8 @@ Ruble::~Ruble()
 }
 
 Ruble& Ruble::operator + (const Ruble & R)
-{
+{	//takes frac and whole from right side and adds it to the frac and whole from the left side
+
 	Ruble temp;
 	temp.whole = this->whole + R.whole;
 	temp.frac = this->frac + R.frac;
@@ -37,7 +45,7 @@ Ruble& Ruble::operator + (const Ruble & R)
 	return temp;
 }
 Ruble& Ruble::operator + (const double & Ru)
-{
+{//takes frac and whole from right side, turns it into a double, adds it to the left side, and writes it to the temp class, which it returns
 	Ruble temp;
 	int y, z;
 	double x = 0;
@@ -59,7 +67,8 @@ Ruble& Ruble::operator + (const double & Ru)
 }
 
 Ruble& Ruble::operator - (const Ruble & R)
-{
+{	//takes frac and whole from right side and subtracts it from the frac and whole from the left side
+
 	Ruble temp;
 	temp.whole = this->whole - R.whole;
 	temp.frac = this->frac - R.frac;
@@ -69,6 +78,8 @@ Ruble& Ruble::operator - (const Ruble & R)
 }
 Ruble& Ruble::operator - (const double & Ru)
 {
+	//takes frac and whole from right side, turns it into a double, subtracts the left side from it, and adds it to the temp class, which it returns
+
 	Ruble temp;
 	int y, z;
 	double x = 0;
@@ -95,19 +106,20 @@ Ruble& Ruble::operator - (const double & Ru)
 
 }
 Ruble& Ruble::operator = (const Ruble & R)
-{
+{	//sets whatever is on the right to the left by respective value
+
 	this->whole = R.whole;
 	this->frac = R.frac;
 	return *this;
 }
 
 ostream& operator<<(ostream& os, const Ruble& R)
-{
+{//outputs whole and frac
 	os << R.whole << " Hryvnia " << R.frac << " Kopeika" << endl;
 	return os;
 }
 istream& operator>>(istream& is, const Ruble& R)
-{
+{//sets whole and frac
 	is >> R.whole;
 	is >> R.frac;
 	return is;

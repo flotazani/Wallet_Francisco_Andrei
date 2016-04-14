@@ -3,12 +3,15 @@
 
 Franc::Franc() : Currency("Franc", "Rappen", 0, 0)// cent???
 {
+	//sets default name and values as 0
 }
 Franc::Franc(int w, int f) : Currency("Franc", "Rappen", w, f)
 {
+	//sets passed values and default name
 }
 Franc::Franc(double x) : Currency("Franc", "Rappen", 0, 0)
 {
+	//separates double and sets it to frac and whole along with name
 	int y;
 	double z;
 	y = x;
@@ -25,6 +28,7 @@ Franc::~Franc()
 
 Franc& Franc::operator + (const Franc & F)
 {
+	//takes frac and whole from right side and adds it to the frac and whole from the left side
 	Franc temp;
 	temp.whole = this->whole + F.whole;
 	temp.frac = this->frac + F.frac;
@@ -36,7 +40,8 @@ Franc& Franc::operator + (const Franc & F)
 	return temp;
 }
 Franc& Franc::operator + (const double & Fr)
-{
+{	//takes frac and whole from right side, turns it into a double, adds it to the left side, and writes it to the temp class, which it returns
+
 	Franc temp; //currency class
 	int y, z; //temp holders
 	double x = 0;
@@ -61,7 +66,8 @@ Franc& Franc::operator + (const double & Fr)
 }
 
 Franc& Franc::operator - (const Franc & F)
-{
+{	//takes frac and whole from right side and subtracts it from the frac and whole from the left side
+
 	Franc temp;
 	temp.whole = this->whole - F.whole;
 	temp.frac = this->frac - F.frac;
@@ -71,6 +77,8 @@ Franc& Franc::operator - (const Franc & F)
 }
 Franc& Franc::operator - (const double & Fr)
 {
+	//takes frac and whole from right side, turns it into a double, subtracts the left side from it, and adds it to the temp class, which it returns
+
 	Franc temp;
 	int y, z;
 	double x = 0;
@@ -98,18 +106,19 @@ Franc& Franc::operator - (const double & Fr)
 
 Franc& Franc::operator = (const Franc & F)
 {
+	//sets whatever is on the right to the left by respective value
 	this->whole = F.whole;
 	this->frac = F.frac;
 	return *this;
 }
 
 ostream& operator<<(ostream& os, const Franc& F)
-{
+{//outputs whole and frac
 	os << F.whole << " Franc " << F.frac << " Rappen" << endl;
 	return os;
 }
 istream& operator>>(istream& is, const Franc& F)
-{
+{//sets whole and frac
 	is >> F.whole;
 	is >> F.frac;
 	return is;

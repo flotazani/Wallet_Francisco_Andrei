@@ -3,12 +3,19 @@
 
 Euro::Euro() : Currency("Euro", "Cent", 0, 0)
 {
+	//sets default name and values as 0
+
 }
+
 Euro::Euro(int w, int f) : Currency("Euro", "Cent", w, f)
 {
+	//sets passed values and default name
+
 }
 Euro::Euro(double x) : Currency("Euro", "Cent", 0, 0)
 {
+	//separates double and sets it to frac and whole along with name
+
 	int y;
 	double z;
 	y = x;
@@ -25,7 +32,8 @@ Euro::~Euro()
 }
 
 Euro& Euro::operator + (const Euro & E)
-{
+{	//takes frac and whole from right side and adds it to the frac and whole from the left side
+
 	Euro temp;
 	temp.whole = this->whole + E.whole;
 	temp.frac = this->frac + E.frac;
@@ -37,7 +45,7 @@ Euro& Euro::operator + (const Euro & E)
 	return temp;
 }
 Euro& Euro::operator + (const double & Eu)
-{
+{//takes frac and whole from right side, turns it into a double, adds it to the left side, and writes it to the temp class, which it returns
 	Euro temp;
 	int y, z;
 	double x = 0;
@@ -59,7 +67,8 @@ Euro& Euro::operator + (const double & Eu)
 }
 
 Euro& Euro::operator - (const Euro & E)
-{
+{	//takes frac and whole from right side and subtracts it from the frac and whole from the left side
+
 	Euro temp;
 	temp.whole = this->whole - E.whole;
 	temp.frac = this->frac - E.frac;
@@ -69,6 +78,8 @@ Euro& Euro::operator - (const Euro & E)
 }
 Euro& Euro::operator - (const double & Eu)
 {
+	//takes frac and whole from right side, turns it into a double, subtracts the left side from it, and adds it to the temp class, which it returns
+
 	Euro temp;
 	int y, z;
 	double x = 0;
@@ -95,19 +106,20 @@ Euro& Euro::operator - (const double & Eu)
 }
 
 Euro& Euro::operator = (const Euro & E)
-{
+{	//sets whatever is on the right to the left by respective value
+
 	this->whole = E.whole;
 	this->frac = E.frac;
 	return *this;
 }
 
 ostream& operator<<(ostream& os, const Euro& E)
-{
+{//outputs whole and frac
 	os << E.whole << " Euro " << E.frac << " Cents" << endl;
 	return os;
 }
 istream& operator>>(istream& is, const Euro& E)
-{
+{//sets whole and frac
 	is >> E.whole;
 	is >> E.frac;
 	return is;

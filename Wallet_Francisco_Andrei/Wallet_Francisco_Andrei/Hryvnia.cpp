@@ -3,12 +3,16 @@
 
 Hryvnia::Hryvnia() : Currency("Hryvnia", "Kopeika", 0, 0)
 {
+	//sets default name and values as 0
 }
 Hryvnia::Hryvnia(int w, int f) : Currency("Hryvnia", "Kopeika", w, f)
 {
+	//sets passed values and default name
 }
 Hryvnia::Hryvnia(double x) : Currency("Hryvnia", "Cent", 0, 0)
 {
+	//separates double and sets it to frac and whole along with name
+
 	int y;
 	double z;
 	y = x;
@@ -24,7 +28,8 @@ Hryvnia::~Hryvnia()
 }
 
 Hryvnia& Hryvnia::operator + (const Hryvnia & H)
-{
+{	//takes frac and whole from right side and adds it to the frac and whole from the left side
+
 	Hryvnia temp;
 	temp.whole = this->whole + H.whole;
 	temp.frac = this->frac + H.frac;
@@ -36,7 +41,7 @@ Hryvnia& Hryvnia::operator + (const Hryvnia & H)
 	return temp;
 }
 Hryvnia& Hryvnia::operator + (const double & Hr)
-{
+{//takes frac and whole from right side, turns it into a double, adds it to the left side, and writes it to the temp class, which it returns
 	Hryvnia temp;
 	int y, z;
 	double x = 0;
@@ -59,6 +64,8 @@ Hryvnia& Hryvnia::operator + (const double & Hr)
 
 Hryvnia& Hryvnia::operator - (const Hryvnia & H)
 {
+	//takes frac and whole from right side and subtracts it from the frac and whole from the left side
+
 	Hryvnia temp;
 	temp.whole = this->whole - H.whole;
 	temp.frac = this->frac - H.frac;
@@ -68,6 +75,8 @@ Hryvnia& Hryvnia::operator - (const Hryvnia & H)
 }
 Hryvnia& Hryvnia::operator - (const double & Hr)
 {
+	//takes frac and whole from right side, turns it into a double, subtracts the left side from it, and adds it to the temp class, which it returns
+
 	Hryvnia temp;
 	int y, z;
 	double x = 0;
@@ -94,19 +103,20 @@ Hryvnia& Hryvnia::operator - (const double & Hr)
 	return temp;
 }
 Hryvnia& Hryvnia::operator = (const Hryvnia & H)
-{
+{	//sets whatever is on the right to the left by respective value
+
 	this->whole = H.whole;
 	this->frac = H.frac;
 	return *this;
 }
 
 ostream& operator<<(ostream& os, const Hryvnia& H)
-{
+{//outputs whole and frac
 	os << H.whole << " Hryvnia " << H.frac << " Kopeika" << endl;
 	return os;
 }
 istream& operator>>(istream& is, const Hryvnia& H)
-{
+{//sets whole and frac
 	is >> H.whole;
 	is >> H.frac;
 	return is;

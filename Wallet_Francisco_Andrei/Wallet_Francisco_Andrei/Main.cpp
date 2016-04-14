@@ -122,12 +122,12 @@ int main(){
 	//wall.setDouble(14.2);
 	//Wallet mainWallet;
 	Wallet *hermes = new Wallet;
-	 srand(time(0));
-	 double atr = rand() / (double)RAND_MAX;
-	 atr1 = rand();
+	 srand(time(0)); //set random seed
+	 double atr = rand() / (double)RAND_MAX; //set rand cent generator
+	 atr1 = rand(); //set rand num generator
 	for (int i = 0; i <= 4; i++)
 	{
-		atr1 += atr;
+		atr1 += atr; //merge numbers
 		hermes->ptr[i]->setDouble(atr1);
 	}
 
