@@ -33,6 +33,7 @@ public:             // ???? ????????? ???????!! ONLY POSITIVE NUMBERS
 	virtual T& operator - (const double & Do);
 	virtual friend ostream& operator<<(ostream& os, const T& D);
 	virtual friend ostream& operator>>(ostream& os, const T& D);
+	Currency &Currency<T>::operator = (const Currency & C1)
 	//Currency& operator = (const Currency & C1);
 };
 
