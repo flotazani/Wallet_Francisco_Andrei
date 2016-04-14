@@ -5,12 +5,14 @@ using namespace std;
 
 Currency::Currency()
 {
+	//default constructor sets everything to 0
 	wholeName = fracName = "Generic";
 	whole = frac = 0;
 }
 
 Currency::Currency(string wn, string fn, int w, int f)
 {
+	//sets everything to passed values
 	wholeName = wn;
 	fracName = fn;
 	whole = w;
@@ -19,16 +21,19 @@ Currency::Currency(string wn, string fn, int w, int f)
 
 void Currency::setWhole(int w)
 {
+	//sets passed value
 	whole = w;
 }
 
 void Currency::setFrac(int f)
 {
+
 	frac = f;
 }
 
 void Currency::setDouble(double x)
 {
+	//separates double into frac and whole
 	int y;
 	double z;
 	y = x;
@@ -57,6 +62,7 @@ void Currency::setFracName(string fn)
 
 int Currency::getWhole()
 {
+	//gets respective value
 	return whole;
 }
 
@@ -67,6 +73,7 @@ int Currency::getFrac()
 
 double Currency::getDouble()
 {
+	//turns frac and whole into one double
 	double x;
 	x = frac / 100;
 	cout << x;
