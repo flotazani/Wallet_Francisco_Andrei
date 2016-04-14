@@ -21,6 +21,7 @@ public:             // ???? ????????? ???????!! ONLY POSITIVE NUMBERS
 	//gets
 	int getWhole();
 	int getFrac();
+	double getDouble();
 	string getWholeName();
 	string getFracName();
 	//constructors

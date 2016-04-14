@@ -9,7 +9,7 @@ enum money
 	Dollar, Euro, Franc, Hryvnia, Ruble
 };
 
-void addFunds(Wallet & hermes)
+void addFunds(Wallet &hermes)
 {
 	char selec;
 	bool mainLoop = 0, subLoop = 0;
@@ -66,7 +66,10 @@ void addFunds(Wallet & hermes)
 
 void checkFunds(Wallet &hermes)
 {
-	hermes.ptr
+	for (int c = 0; c < 4; c++)
+	{
+		cout << hermes.ptr[c]->getDouble();
+	}
 }
 
 int main(){
