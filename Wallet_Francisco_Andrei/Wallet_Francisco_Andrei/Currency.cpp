@@ -63,3 +63,5 @@ Currency operator + (const Currency & C1, const Currency & C2)
 Currency::~Currency()
 {
 }
+
+
