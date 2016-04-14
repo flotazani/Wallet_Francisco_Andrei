@@ -5,6 +5,7 @@ class Ruble :
 {
 public:
 	Ruble();
+	Ruble(double);
 	Ruble(int,int);
 	~Ruble();
 };

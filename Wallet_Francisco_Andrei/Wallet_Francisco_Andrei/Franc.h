@@ -5,6 +5,7 @@ class Franc :
 {
 public:
 	Franc();
+	Franc(double);
 	Franc(int,int);
 	~Franc();
 };
