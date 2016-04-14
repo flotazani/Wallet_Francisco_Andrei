@@ -79,15 +79,19 @@ void checkFunds(Wallet* &hermes)
 
 int main(){
 	char selec;
+	double atr1;
 	bool mainLoop = 0;
 	//Currency wall;
 	//wall.setDouble(14.2);
 	//Wallet mainWallet;
 	Wallet *hermes = new Wallet;
-	 crand(time(0));
+	 srand(time(0));
+	 double atr = rand() / (double)RAND_MAX;
+	 atr1 = rand();
 	for (int i = 0; i <= 4; i++)
 	{
-		hermes->ptr[i]->setDouble(value);
+		atr1 += atr;
+		hermes->ptr[i]->setDouble(atr1);
 	}
 	
 	while (!mainLoop)
