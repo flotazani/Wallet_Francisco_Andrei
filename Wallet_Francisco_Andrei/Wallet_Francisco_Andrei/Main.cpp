@@ -9,12 +9,12 @@ enum money
 	Dollar, Euro, Franc, Hryvnia, Ruble
 };
 
-Wallet addFunds()
+void addFunds(Wallet & hermes)
 {
 	char selec;
 	bool mainLoop = 0, subLoop = 0;
 	double value = 0;
-	Wallet hermes;
+
 
 	while (!mainLoop)
 	{
@@ -62,19 +62,18 @@ Wallet addFunds()
 		selec--;
 		hermes.addMoney(selec, value);
 	}
-
-	return hermes;
 }
 
-void checkFunds(Wallet x)
+void checkFunds(Wallet &hermes)
 {
-
+	hermes.ptr
 }
 
 int main(){
 	char selec;
 	bool mainLoop = 0;
-
+	//Wallet mainWallet;
+	Wallet hermes;
 
 	while (!mainLoop)
 	{
@@ -93,9 +92,10 @@ int main(){
 			cout << "Please enter a valid selection!";
 			break;
 		case '1':
-			addFunds();
+			 addFunds(hermes);
 			break;
 		case '2':
+			checkFunds(hermes);
 			break;
 		case '3':
 			cout << "Goodbye!";
