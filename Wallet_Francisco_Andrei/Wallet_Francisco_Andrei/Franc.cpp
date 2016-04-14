@@ -1,13 +1,13 @@
 #include "Franc.h"
 
 
-Franc::Franc() : Currency("Franc", "Cent", 0, 0)// cent???
+Franc::Franc() : Currency("Franc", "Rappen", 0, 0)// cent???
 {
 }
-Franc::Franc(int w, int f) : Currency("Franc", "Cent", w, f)
+Franc::Franc(int w, int f) : Currency("Franc", "Rappen", w, f)
 {
 }
-Franc::Franc(double x)
+Franc::Franc(double x) : Currency("Franc", "Rappen", 0, 0)
 {
 	int y;
 	double z;
@@ -15,8 +15,7 @@ Franc::Franc(double x)
 	setWhole(y);
 
 	z = x - y;
-
-	z *=100;
+	z *= 100;
 	setFrac(z);
 
 }
@@ -38,7 +37,28 @@ Franc& Franc::operator + (const Franc & F)
 	return temp;
 }
 
-Franc& Franc::operator + (const double & Fr){}
+Franc& Franc::operator + (const double & Fr)
+{
+	Franc temp;
+	int y, z;
+	double x;
+	x += whole;
+	x += (frac * 100);
+
+	if (x <= 0 && Fr <= 0)
+		x += Fr;
+	else
+		cout << "invalid operation" << endl;
+
+	y = x;
+	temp.setWhole(y);
+
+	z = x - y;
+	z *= 100;
+	setFrac(z);
+
+	return temp;
+}
 
 Franc& Franc::operator - (const Franc & F)
 {
@@ -50,6 +70,33 @@ Franc& Franc::operator - (const Franc & F)
 	return temp;
 }
 
+Franc& Franc::operator - (const double & Fr)
+{
+	Franc temp;
+	int y, z;
+	double x;
+	x += whole;
+	x += (frac * 100);
+
+	if (x <= 0 && Fr <= 0)
+		x -= Fr;
+	else
+		cout << "invalid operation" << endl;
+
+	if (x <= 0)
+	{
+		y = x;
+		temp.setWhole(y);
+
+		z = x - y;
+		z *= 100;
+		setFrac(z);
+	}
+	else
+		cout << "invalid operation" << endl;
+
+	return temp;
+}
 Franc& Franc::operator - (const double & Fr){}
 
 ostream& operator<<(ostream& os, const Franc& F)

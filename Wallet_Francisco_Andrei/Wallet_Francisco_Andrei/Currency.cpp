@@ -61,7 +61,7 @@ string Currency<T>::getFracName()
 template < class T >
 Currency &Currency<T>::operator = (const Currency & C1)
 {
-
+	return 0;
 }
 template < class T >
 Currency<T>::~Currency()

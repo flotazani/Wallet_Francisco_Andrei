@@ -8,6 +8,19 @@ Hryvnia::Hryvnia(int w, int f) : Currency("Hryvnia", "Kopeika", w, f)
 {
 }
 
+Hryvnia::Hryvnia(double x) : Currency("Hryvnia", "Cent", 0, 0)
+{
+	int y;
+	double z;
+	y = x;
+	setWhole(y);
+
+	z = x - y;
+	z *= 100;
+	setFrac(z);
+
+}
+
 Hryvnia::~Hryvnia()
 {
 }
@@ -25,7 +38,28 @@ Hryvnia& Hryvnia::operator + (const Hryvnia & H)
 	return temp;
 }
 
-Hryvnia& Hryvnia::operator + (const double & Hr){}
+Hryvnia& Hryvnia::operator + (const double & Hr)
+{
+	Hryvnia temp;
+	int y, z;
+	double x;
+	x += whole;
+	x += (frac * 100);
+
+	if (x <= 0 && Hr <= 0)
+		x += Hr;
+	else
+		cout << "invalid operation" << endl;
+
+	y = x;
+	temp.setWhole(y);
+
+	z = x - y;
+	z *= 100;
+	setFrac(z);
+
+	return temp;
+}
 
 Hryvnia& Hryvnia::operator - (const Hryvnia & H)
 {
@@ -36,6 +70,33 @@ Hryvnia& Hryvnia::operator - (const Hryvnia & H)
 	if (temp.whole <= 0){ temp.whole = 0; cout << "invalid operation/n"; }
 	return temp;
 }
+
+Hryvnia& Hryvnia::operator - (const double & Hr)
+{
+	Hryvnia temp;
+	int y, z;
+	double x;
+	x += whole;
+	x += (frac * 100);
+
+	if (x <= 0 && Hr <= 0)
+		x -= Hr;
+	else
+		cout << "invalid operation" << endl;
+
+	if (x <= 0)
+	{
+		y = x;
+		temp.setWhole(y);
+
+		z = x - y;
+		z *= 100;
+		setFrac(z);
+	}
+	else
+		cout << "invalid operation" << endl;
+
+	return temp;
 
 Hryvnia& Hryvnia::operator - (const double & Hr){}
 ostream& operator<<(ostream& os, const Hryvnia& H)

@@ -15,5 +15,5 @@ public:
 	friend ostream& operator<<(ostream& os, const Hryvnia& H);
 	friend istream& operator>>(istream& is, const Hryvnia& H);
 };
-};
+ 
 
