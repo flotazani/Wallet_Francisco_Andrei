@@ -1,5 +1,4 @@
 #include <iostream>
-//#include "Currency.h"
 #include <string.h>
 #include <iomanip>
 #include "Wallet.h"
@@ -7,6 +6,7 @@
 #include <time.h>
 using namespace std;
 /*
+Made by Francisco and Andrei. 
 addFunds:
 main loop
 	list options
