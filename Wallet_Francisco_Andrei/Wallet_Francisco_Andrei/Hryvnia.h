@@ -13,7 +13,7 @@ public:
 	Hryvnia& operator - (const Hryvnia & H);
 	Hryvnia& operator - (const double & Hr);
 	friend ostream& operator<<(ostream& os, const Hryvnia& H);
-	friend ostream& operator>>(ostream& os, const Hryvnia& H);
+	friend istream& operator>>(istream& is, const Hryvnia& H);
 };
  
 

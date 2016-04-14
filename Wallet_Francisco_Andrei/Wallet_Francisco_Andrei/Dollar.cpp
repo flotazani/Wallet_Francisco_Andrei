@@ -99,3 +99,16 @@ Dollar& Dollar::operator - (const double & Do)
 
 	return temp;
 }
+Dollar& Dollar::operator - (const double & Do){}
+
+ostream& operator<<(ostream& os, const Dollar& D)
+{
+	os << D.whole << " Dollar " << D.frac << " Cents" << endl;
+	return os;
+}
+
+istream& operator>>(istream& is, const Dollar& D)
+{
+	is >> D.whole;
+	is >> D.frac;
+}

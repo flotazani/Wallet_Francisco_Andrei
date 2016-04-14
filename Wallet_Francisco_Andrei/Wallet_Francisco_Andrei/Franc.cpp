@@ -13,7 +13,7 @@ Franc::Franc(double x) : Currency("Franc", "Rappen", 0, 0)
 	double z;
 	y = x;
 	setWhole(y);
-	
+
 	z = x - y;
 	z *= 100;
 	setFrac(z);
@@ -96,4 +96,16 @@ Franc& Franc::operator - (const double & Fr)
 		cout << "invalid operation" << endl;
 
 	return temp;
+}
+Franc& Franc::operator - (const double & Fr){}
+
+ostream& operator<<(ostream& os, const Franc& F)
+{
+	os << F.whole << " Franc " << F.frac << " Rappen" << endl;
+	return os;
+}
+istream& operator>>(istream& is, const Franc& F)
+{
+	is >> F.whole;
+	is >> F.frac;
 }

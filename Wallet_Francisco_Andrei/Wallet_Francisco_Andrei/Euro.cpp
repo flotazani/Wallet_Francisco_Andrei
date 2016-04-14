@@ -99,3 +99,15 @@ Euro& Euro::operator - (const double & Eu)
 	
 	return temp;
 }
+Euro& Euro::operator - (const double & Eu){}
+
+ostream& operator<<(ostream& os, const Euro& E)
+{
+	os << E.whole << " Euro " << E.frac << " Cents" << endl;
+	return os;
+}
+istream& operator>>(istream& is, const Euro& E)
+{
+	is >> E.whole;
+	is >> E.frac;
+}
