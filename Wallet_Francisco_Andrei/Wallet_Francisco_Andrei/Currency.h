@@ -26,6 +26,6 @@ public:             // ???? ????????? ???????!! ONLY POSITIVE NUMBERS
 	Currency(std::string, std::string, int, int);
 	~Currency();
 	//virtual overloaded operators
-	friend Currency operator + (const Currency & C1, const Currency & C2);
+	//Currency& operator = (const Currency & C1);
 };
 
