@@ -11,16 +11,16 @@ Wallet::Wallet()
 
 }
 
-Wallet::Wallet(int Curr, double num)
+Wallet::Wallet(char Curr, double num)
 {
-	if (Curr == 0){
+	if (Curr == '0'){
 		ptr[0] = new Dollar(num);
 		ptr[1] = new Euro;
 		ptr[2] = new Franc;
 		ptr[3] = new Hryvnia;
 		ptr[4] = new Ruble;
 	}
-	else if (Curr == 1)
+	else if (Curr == '1')
 	{
 		ptr[0] = new Dollar;
 		ptr[1] = new Euro(num);
@@ -28,7 +28,7 @@ Wallet::Wallet(int Curr, double num)
 		ptr[3] = new Hryvnia;
 		ptr[4] = new Ruble;
 	}
-	else if (Curr == 2)
+	else if (Curr == '2')
 	{
 		ptr[0] = new Dollar;
 		ptr[1] = new Euro;
@@ -36,7 +36,7 @@ Wallet::Wallet(int Curr, double num)
 		ptr[3] = new Hryvnia;
 		ptr[4] = new Ruble;
 	}
-	else if (Curr == 3)
+	else if (Curr == '3')
 	{
 		ptr[0] = new Dollar;
 		ptr[1] = new Euro;
@@ -44,7 +44,7 @@ Wallet::Wallet(int Curr, double num)
 		ptr[3] = new Hryvnia(num);
 		ptr[4] = new Ruble;
 	}
-	else if (Curr == 4)
+	else if (Curr == '4')
 	{
 		ptr[0] = new Dollar;
 		ptr[1] = new Euro;
@@ -53,16 +53,16 @@ Wallet::Wallet(int Curr, double num)
 		ptr[4] = new Ruble(num);
 	}
 }
-Wallet::Wallet(int Curr, int wh, int fr)
+Wallet::Wallet(char Curr, int wh, int fr)
 {
-	if (Curr == 0){
+	if (Curr == '0'){
 		ptr[0] = new Dollar(wh,fr);
 		ptr[1] = new Euro;
 		ptr[2] = new Franc;
 		ptr[3] = new Hryvnia;
 		ptr[4] = new Ruble;
 	}
-	else if (Curr == 1)
+	else if (Curr == '1')
 	{
 		ptr[0] = new Dollar;
 		ptr[1] = new Euro(wh, fr);
@@ -70,7 +70,7 @@ Wallet::Wallet(int Curr, int wh, int fr)
 		ptr[3] = new Hryvnia;
 		ptr[4] = new Ruble;
 	}
-	else if (Curr == 2)
+	else if (Curr == '2')
 	{
 		ptr[0] = new Dollar;
 		ptr[1] = new Euro;
@@ -78,7 +78,7 @@ Wallet::Wallet(int Curr, int wh, int fr)
 		ptr[3] = new Hryvnia;
 		ptr[4] = new Ruble;
 	}
-	else if (Curr == 3)
+	else if (Curr == '3')
 	{
 		ptr[0] = new Dollar;
 		ptr[1] = new Euro;
@@ -86,7 +86,7 @@ Wallet::Wallet(int Curr, int wh, int fr)
 		ptr[3] = new Hryvnia(wh, fr);
 		ptr[4] = new Ruble;
 	}
-	else if (Curr == 4)
+	else if (Curr == '4')
 	{
 		ptr[0] = new Dollar;
 		ptr[1] = new Euro;
@@ -96,6 +96,16 @@ Wallet::Wallet(int Curr, int wh, int fr)
 	}
 
 }
+
+void Wallet::addMoney(char x, double y)
+{
+	Wallet::Wallet(x, y);
+}
+void Wallet::addMoney(char x, int y, int z)
+{
+	Wallet::Wallet(x, y, z);
+}
+
 
 Wallet::~Wallet()
 {
