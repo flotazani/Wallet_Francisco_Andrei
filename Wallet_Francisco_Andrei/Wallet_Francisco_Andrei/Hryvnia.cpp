@@ -38,7 +38,28 @@ Hryvnia& Hryvnia::operator + (const Hryvnia & H)
 	return temp;
 }
 
-Hryvnia& Hryvnia::operator + (const double & Hr){}
+Hryvnia& Hryvnia::operator + (const double & Hr)
+{
+	Hryvnia temp;
+	int y, z;
+	double x;
+	x += whole;
+	x += (frac * 100);
+
+	if (x <= 0 && Hr <= 0)
+		x += Hr;
+	else
+		cout << "invalid operation" << endl;
+
+	y = x;
+	temp.setWhole(y);
+
+	z = x - y;
+	z *= 100;
+	setFrac(z);
+
+	return temp;
+}
 
 Hryvnia& Hryvnia::operator - (const Hryvnia & H)
 {
@@ -50,4 +71,31 @@ Hryvnia& Hryvnia::operator - (const Hryvnia & H)
 	return temp;
 }
 
-Hryvnia& Hryvnia::operator - (const double & Hr){}
+Hryvnia& Hryvnia::operator - (const double & Hr)
+{
+	Hryvnia temp;
+	int y, z;
+	double x;
+	x += whole;
+	x += (frac * 100);
+
+	if (x <= 0 && Hr <= 0)
+		x -= Hr;
+	else
+		cout << "invalid operation" << endl;
+
+	if (x <= 0)
+	{
+		y = x;
+		temp.setWhole(y);
+
+		z = x - y;
+		z *= 100;
+		setFrac(z);
+	}
+	else
+		cout << "invalid operation" << endl;
+
+	return temp;
+
+}

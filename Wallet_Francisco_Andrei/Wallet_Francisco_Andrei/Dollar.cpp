@@ -41,6 +41,25 @@ Dollar& Dollar::operator+(const Dollar &D)
 }
 Dollar& Dollar::operator + (const double & Do)
 {
+	Dollar temp;
+	int y, z;
+	double x;
+	x += whole;
+	x += (frac * 100);
+
+	if (x <= 0 && Do <= 0)
+		x += Do;
+	else
+		cout << "invalid operation" << endl;
+
+	y = x;
+	temp.setWhole(y);
+
+	z = x - y;
+	z *= 100;
+	setFrac(z);
+
+	return temp;
 }
 
 Dollar& Dollar::operator - (const Dollar & D)
@@ -53,4 +72,30 @@ Dollar& Dollar::operator - (const Dollar & D)
 	
 	return temp;
 }
-Dollar& Dollar::operator - (const double & Do){}
+Dollar& Dollar::operator - (const double & Do)
+{
+	Dollar temp;
+	int y, z;
+	double x;
+	x += whole;
+	x += (frac * 100);
+
+	if (x <= 0 && Do <= 0)
+		x -= Do;
+	else
+		cout << "invalid operation" << endl;
+
+	if (x <= 0)
+	{
+		y = x;
+		temp.setWhole(y);
+
+		z = x - y;
+		z *= 100;
+		setFrac(z);
+	}
+	else
+		cout << "invalid operation" << endl;
+
+	return temp;
+}

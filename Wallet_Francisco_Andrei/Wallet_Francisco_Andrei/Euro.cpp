@@ -38,7 +38,29 @@ Euro& Euro::operator + (const Euro & E)
 	}
 	return temp;
 }
-Euro& Euro::operator + (const double & Eu){}
+Euro& Euro::operator + (const double & Eu)
+{
+	Euro temp;
+	int y, z;
+	double x;
+	x += whole;
+	x += (frac * 100);
+
+	if (x <= 0 && Eu <= 0)
+		x += Eu;
+	else
+		cout << "invalid operation" << endl;
+
+	y = x;
+	temp.setWhole(y);
+
+	z = x - y;
+	z *= 100;
+	setFrac(z);
+
+	return temp;
+}
+
 
 Euro& Euro::operator - (const Euro & E)
 {
@@ -50,4 +72,30 @@ Euro& Euro::operator - (const Euro & E)
 	return temp;
 }
 
-Euro& Euro::operator - (const double & Eu){}
+Euro& Euro::operator - (const double & Eu)
+{
+	Euro temp;
+	int y, z;
+	double x;
+	x += whole;
+	x += (frac * 100);
+
+	if (x <= 0 && Eu <= 0)
+		x -= Eu;
+	else
+		cout << "invalid operation" << endl;
+
+	if (x <= 0)
+	{
+		y = x;
+		temp.setWhole(y);
+
+		z = x - y;
+		z *= 100;
+		setFrac(z);
+	}
+	else
+		cout << "invalid operation" << endl;
+	
+	return temp;
+}

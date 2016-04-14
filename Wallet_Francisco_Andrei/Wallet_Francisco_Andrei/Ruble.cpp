@@ -38,7 +38,28 @@ Ruble& Ruble::operator + (const Ruble & R)
 	return temp;
 }
 
-Ruble& Ruble::operator + (const double & Ru){}
+Ruble& Ruble::operator + (const double & Ru)
+{
+	Ruble temp;
+	int y, z;
+	double x;
+	x += whole;
+	x += (frac * 100);
+
+	if (x <= 0 && Ru <= 0)
+		x += Ru;
+	else
+		cout << "invalid operation" << endl;
+
+	y = x;
+	temp.setWhole(y);
+
+	z = x - y;
+	z *= 100;
+	setFrac(z);
+
+	return temp;
+}
 
 Ruble& Ruble::operator - (const Ruble & R)
 {
@@ -49,4 +70,31 @@ Ruble& Ruble::operator - (const Ruble & R)
 	if (temp.whole <= 0){ temp.whole = 0; cout << "invalid operation/n"; }
 	return temp;
 }
-Ruble& Ruble::operator - (const double & Ru){}
+Ruble& Ruble::operator - (const double & Ru)
+{
+	Ruble temp;
+	int y, z;
+	double x;
+	x += whole;
+	x += (frac * 100);
+
+	if (x <= 0 && Ru <= 0)
+		x -= Ru;
+	else
+		cout << "invalid operation" << endl;
+
+	if (x <= 0)
+	{
+		y = x;
+		temp.setWhole(y);
+
+		z = x - y;
+		z *= 100;
+		setFrac(z);
+	}
+	else
+		cout << "invalid operation" << endl;
+
+	return temp;
+
+}
