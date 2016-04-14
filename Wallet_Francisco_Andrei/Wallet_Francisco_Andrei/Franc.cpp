@@ -54,7 +54,7 @@ Franc& Franc::operator + (const double & Fr)
 	z = x - y; //subtract whole and leave only decimal
 	z *= 100; //mulitply decimal by 100 to make it whole
 	setFrac(z); // send it
-	z = 100 * (x - y);
+	z = 100 * x - 100 * y;
 	setFrac(z);
 
 	return temp;//return temp currency class
@@ -87,8 +87,7 @@ Franc& Franc::operator - (const double & Fr)
 		y = x;
 		temp.setWhole(y);
 
-		z = x - y;
-		z *= 100;
+		z = 100 * x - 100 * y;
 		setFrac(z);
 	}
 	else

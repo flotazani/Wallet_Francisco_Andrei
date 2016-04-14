@@ -34,7 +34,7 @@ void Currency::setDouble(double x)
 	y = x;
 	whole += y;
 	
-	z = 100*(x - y);
+	z = 100*x - 100*y;
 	frac += z;
 	if (frac > 100)
 	{

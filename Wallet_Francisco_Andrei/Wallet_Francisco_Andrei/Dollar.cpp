@@ -55,7 +55,7 @@ Dollar& Dollar::operator + (const double & Do)
 	y = x;
 	temp.setWhole(y);
 
-	z = 100 * (x - y);
+	z = 100 * x - 100 * y;
 	setFrac(z);
 
 	return temp;
@@ -89,7 +89,7 @@ Dollar& Dollar::operator - (const double & Do)
 		y = x;
 		temp.setWhole(y);
 
-		z = 100 * (x - y);
+		z = 100 * x - 100 * y;
 		setFrac(z);
 	}
 	else

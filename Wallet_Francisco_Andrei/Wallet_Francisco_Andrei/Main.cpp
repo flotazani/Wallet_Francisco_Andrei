@@ -1,8 +1,10 @@
 #include <iostream>
-#include "Currency.h"
+//#include "Currency.h"
 #include <string.h>
 #include <iomanip>
 #include "Wallet.h"
+#include<stdlib.h>
+#include <time.h>
 using namespace std;
 /*
 addFunds:
@@ -13,7 +15,7 @@ main loop
 
 	sub-loop for value input (double)
 		input verify using loop that will be triggered on an error
-	
+
 	send all to hermes (main wallet)
 
 checkFunds:
@@ -96,9 +98,9 @@ void addFunds(Wallet* & hermes)
 			subLoop = 1;
 		}
 
-			selec--;
-			hermes->ptr[selec]->setDouble(value);
-
+		selec--;
+		hermes->ptr[selec]->setDouble(value);
+	
 	}
 	cout << endl;
 }
@@ -106,7 +108,7 @@ void addFunds(Wallet* & hermes)
 void checkFunds(Wallet* &hermes)
 {
 	//cout << hermes;
-	for (int i = 0; i < 4; i++){
+	for (int i = 0; i <= 4; i++){
 		cout << hermes->ptr[i]->getWholeName() << " " << hermes->ptr[i]->getWhole() << " " << hermes->ptr[i]->getFracName() << " " << hermes->ptr[i]->getFrac() << endl;
 	}
 	cout << endl;
@@ -119,6 +121,11 @@ int main(){
 	//wall.setDouble(14.2);
 	//Wallet mainWallet;
 	Wallet *hermes = new Wallet;
+	 crand(time(0));
+	for (int i = 0; i <= 4; i++)
+	{
+		hermes->ptr[i]->setDouble(value);
+	}
 
 	while (!mainLoop)
 	{
