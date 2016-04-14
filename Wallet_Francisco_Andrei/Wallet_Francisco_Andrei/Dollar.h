@@ -9,7 +9,7 @@ public:
 	Dollar(int, int);
 	~Dollar();
 	Dollar& operator + (const Dollar & D);
-		
+	Dollar& operator + (const double & Do);
 	Dollar& operator - (const Dollar & D);
 	Dollar& operator - (const double & Do);
 	Dollar& operator = (const Dollar & D);

@@ -9,9 +9,8 @@
 using namespace std;
 class Wallet
 { // you have to put enums somewhere so we will be able to call elements ptr[Dollar] instead of ptr[2]
-private:
-	Currency *ptr[5]; 
 public:
+	Currency *ptr[5];
 	Wallet();
 	Wallet(int, double);
 	Wallet(int, int, int);
