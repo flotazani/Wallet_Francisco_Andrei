@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Currency.h"
 #include <string.h>
 #include <iomanip>
 #include "Wallet.h"
@@ -9,7 +10,7 @@ enum money
 	Dollar, Euro, Franc, Hryvnia, Ruble
 };
 
-void addFunds(Wallet &hermes)
+void addFunds(Wallet* & hermes)
 {
 	int selec;
 	bool mainLoop = 0, subLoop = 0;
@@ -18,7 +19,7 @@ void addFunds(Wallet &hermes)
 
 	while (!mainLoop)
 	{
-		cout <<
+		cout <<endl<<
 			"Select your currency:" << endl <<
 			"1. Dollar" << endl <<
 			"2. Euro" << endl <<
@@ -59,16 +60,17 @@ void addFunds(Wallet &hermes)
 		}
 
 		selec--;
-		hermes.ptr[selec]->setDouble(value);
+		hermes->ptr[selec]->setDouble(value);
+	
 	}
+	cout << endl;
 }
 
-void checkFunds(Wallet &hermes)
+void checkFunds(Wallet* &hermes)
 {
-	string currencies[5] = { "Dollar", "Euro", "Franc", "Hryvnia", "Ruble" };
-	for (int c = 0; c < 5; c++)
-	{
-		cout << currencies[c] << ": " <<setprecision(2)<<fixed<< hermes.ptr[c]->getDouble() << endl;
+	//cout << hermes;
+	for (int i = 0; i < 4; i++){
+		cout << hermes->ptr[i]->getWholeName() << " " << hermes->ptr[i]->getWhole() << " " << hermes->ptr[i]->getFracName() << " " << hermes->ptr[i]->getFrac() << endl;
 	}
 	cout << endl;
 }
@@ -76,8 +78,10 @@ void checkFunds(Wallet &hermes)
 int main(){
 	char selec;
 	bool mainLoop = 0;
+	//Currency wall;
+	//wall.setDouble(14.2);
 	//Wallet mainWallet;
-	Wallet hermes;
+	Wallet *hermes = new Wallet;
 
 	while (!mainLoop)
 	{
@@ -105,7 +109,9 @@ int main(){
 			checkFunds(hermes);
 			break;
 		case '3':
+			checkFunds(hermes);
 			cout << "Goodbye!";
+			delete hermes;
 			mainLoop = true;
 			break;
 		}

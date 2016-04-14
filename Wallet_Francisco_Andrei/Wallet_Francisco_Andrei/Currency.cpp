@@ -32,11 +32,15 @@ void Currency::setDouble(double x)
 	int y;
 	double z;
 	y = x;
-	whole = y;
+	whole += y;
 	
-	z = x - y;
-	z *= 100;
-	frac = z;
+	z = 100*(x - y);
+	frac += z;
+	if (frac > 100)
+	{
+		frac = frac - 100;
+		whole++;
+	}
 }
 
 void Currency::setWholeName(string wn)

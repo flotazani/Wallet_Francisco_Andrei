@@ -14,8 +14,7 @@ Franc::Franc(double x) : Currency("Franc", "Rappen", 0, 0)
 	y = x;
 	setWhole(y);
 
-	z = x - y;
-	z *= 100;
+	z = 100 * (x - y);
 	setFrac(z);
 
 }
@@ -40,7 +39,7 @@ Franc& Franc::operator + (const double & Fr)
 {
 	Franc temp; //currency class
 	int y, z; //temp holders
-	double x = 0; 
+	double x = 0;
 	x += this->whole; //add the whole numb to x
 	x += (this->frac * 100); //multiply the decimal by 100 and add it to x
 
@@ -55,6 +54,8 @@ Franc& Franc::operator + (const double & Fr)
 	z = x - y; //subtract whole and leave only decimal
 	z *= 100; //mulitply decimal by 100 to make it whole
 	setFrac(z); // send it
+	z = 100 * (x - y);
+	setFrac(z);
 
 	return temp;//return temp currency class
 }
