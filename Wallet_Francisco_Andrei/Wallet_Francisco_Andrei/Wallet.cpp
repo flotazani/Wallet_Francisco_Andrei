@@ -99,7 +99,7 @@ Wallet::Wallet(char Curr, int wh, int fr)
 
 void Wallet::addMoney(char x, double y)
 {
-	ptr[x]-> y);
+	ptr[x]->setDouble(y);
 }
 void Wallet::addMoney(char x, int y, int z)
 {
