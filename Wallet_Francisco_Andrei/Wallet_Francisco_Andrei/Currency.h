@@ -9,7 +9,7 @@ class Currency
 protected:
 	int whole, frac;
 	std::string wholeName, fracName;
-public:
+public:             // ???? ????????? ???????!! ONLY POSITIVE NUMBERS
 	//sets
 	void setWhole(int);
 	void setFrac(int);
@@ -24,6 +24,7 @@ public:
 	Currency();
 	Currency(std::string, std::string, int, int);
 	~Currency();
-	//virtual something, add later
+	//virtual overloaded operators
+	friend Currency operator + (const Currency & C1, const Currency & C2);
 };
 
