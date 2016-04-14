@@ -40,7 +40,7 @@ Hryvnia& Hryvnia::operator + (const double & Hr)
 {
 	Hryvnia temp;
 	int y, z;
-	double x;
+	double x = 0;
 	x += this->whole;
 	x += (this->frac * 100);
 
@@ -72,7 +72,7 @@ Hryvnia& Hryvnia::operator - (const double & Hr)
 {
 	Hryvnia temp;
 	int y, z;
-	double x;
+	double x = 0;
 	x += this->whole;
 	x += (this->frac * 100);
 
@@ -94,6 +94,12 @@ Hryvnia& Hryvnia::operator - (const double & Hr)
 		cout << "invalid operation" << endl;
 
 	return temp;
+}
+Hryvnia& Hryvnia::operator = (const Hryvnia & H)
+{
+	this->whole = H.whole;
+	this->frac = H.frac;
+	return *this;
 }
 
 ostream& operator<<(ostream& os, const Hryvnia& H)

@@ -76,7 +76,7 @@ Dollar& Dollar::operator - (const double & Do)
 {
 	Dollar temp;
 	int y, z;
-	double x;
+	double x = 0;
 	x += this->whole;
 	x += (this->frac * 100);
 
@@ -98,6 +98,12 @@ Dollar& Dollar::operator - (const double & Do)
 		cout << "invalid operation" << endl;
 
 	return temp;
+}
+Dollar& Dollar::operator = (const Dollar & D)
+{
+	this->whole = D.whole;
+	this->frac = D.frac;
+	return *this;
 }
 
 ostream& operator<<(ostream& os, const Dollar& D)

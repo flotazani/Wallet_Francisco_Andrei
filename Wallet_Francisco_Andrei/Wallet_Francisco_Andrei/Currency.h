@@ -5,7 +5,7 @@
 #include <iomanip>
 #include <math.h>
 using namespace std;
-template <class T>
+
 class Currency
 {
 protected:
@@ -27,11 +27,11 @@ public:             // ???? ????????? ???????!! ONLY POSITIVE NUMBERS
 	Currency(std::string, std::string, int, int);
 	~Currency();
 	//virtual overloaded operators
-	virtual T& operator + (const T & D);
-	virtual T& operator + (const double & Do);
-	virtual T& operator - (const T & D);
-	virtual T& operator - (const double & Do); 
-	virtual T& operator = (const T & C)
+	/*virtual Currency& operator + (const Currency & D);
+	virtual Currency& operator + (const double & Do);
+	virtual Currency& operator - (const Currency & D);
+	virtual Currency& operator - (const double & Do); 
+	virtual Currency& operator = (const Currency & C);*/
 	//virtual friend ostream& operator<<(ostream& os, const T& D);
 	//virtual friend istream& operator>>(istream& is, const T& D);
 	//Currency& operator = (const Currency & C1);

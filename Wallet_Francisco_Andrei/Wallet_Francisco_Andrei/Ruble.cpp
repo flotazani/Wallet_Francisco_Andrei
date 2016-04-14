@@ -40,7 +40,7 @@ Ruble& Ruble::operator + (const double & Ru)
 {
 	Ruble temp;
 	int y, z;
-	double x;
+	double x = 0;
 	x += this->whole;
 	x += (this->frac * 100);
 
@@ -72,7 +72,7 @@ Ruble& Ruble::operator - (const double & Ru)
 {
 	Ruble temp;
 	int y, z;
-	double x;
+	double x = 0;
 	x += this->whole;
 	x += (this->frac * 100);
 
@@ -95,6 +95,12 @@ Ruble& Ruble::operator - (const double & Ru)
 
 	return temp;
 
+}
+Ruble& Ruble::operator = (const Ruble & R)
+{
+	this->whole = R.whole;
+	this->frac = R.frac;
+	return *this;
 }
 
 ostream& operator<<(ostream& os, const Ruble& R)
