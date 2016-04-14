@@ -38,3 +38,13 @@ Hryvnia& Hryvnia::operator - (const Hryvnia & H)
 }
 
 Hryvnia& Hryvnia::operator - (const double & Hr){}
+ostream& operator<<(ostream& os, const Hryvnia& H)
+{
+	os << H.whole << " Hryvnia " << H.frac << " Kopeika" << endl;
+	return os;
+}
+istream& operator>>(istream& is, const Hryvnia& H)
+{
+	is >> H.whole;
+	is >> H.frac;
+}

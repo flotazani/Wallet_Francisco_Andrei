@@ -51,3 +51,14 @@ Franc& Franc::operator - (const Franc & F)
 }
 
 Franc& Franc::operator - (const double & Fr){}
+
+ostream& operator<<(ostream& os, const Franc& F)
+{
+	os << F.whole << " Franc " << F.frac << " Rappen" << endl;
+	return os;
+}
+istream& operator>>(istream& is, const Franc& F)
+{
+	is >> F.whole;
+	is >> F.frac;
+}

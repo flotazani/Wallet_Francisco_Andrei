@@ -37,3 +37,14 @@ Ruble& Ruble::operator - (const Ruble & R)
 	return temp;
 }
 Ruble& Ruble::operator - (const double & Ru){}
+
+ostream& operator<<(ostream& os, const Ruble& R)
+{
+	os << R.whole << " Hryvnia " << R.frac << " Kopeika" << endl;
+	return os;
+}
+istream& operator>>(istream& is, const Ruble& R)
+{
+	is >> R.whole;
+	is >> R.frac;
+}
