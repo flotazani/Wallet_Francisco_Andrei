@@ -136,7 +136,7 @@ int main(){
 			"3: Exit" << endl << endl <<
 			"Your choice: ";
 
-		cin >> selec;
+		cin.get(selec);
 
 		switch (selec)
 		{
