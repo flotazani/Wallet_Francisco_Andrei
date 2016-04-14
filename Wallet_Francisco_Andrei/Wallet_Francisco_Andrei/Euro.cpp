@@ -7,7 +7,6 @@ Euro::Euro() : Currency("Euro", "Cent", 0, 0)
 Euro::Euro(int w, int f) : Currency("Euro", "Cent", w, f)
 {
 }
-
 Euro::Euro(double x) : Currency("Euro", "Cent", 0, 0)
 {
 	int y;
@@ -20,7 +19,6 @@ Euro::Euro(double x) : Currency("Euro", "Cent", 0, 0)
 	setFrac(z);
 
 }
-
 
 Euro::~Euro()
 {
@@ -44,7 +42,7 @@ Euro& Euro::operator + (const double & Eu)
 	int y, z;
 	double x;
 	x += this->whole;
-	x += (frac * 100);
+	x += (this->frac * 100);
 
 	if (x <= 0 && Eu <= 0)
 		x += Eu;
@@ -61,7 +59,6 @@ Euro& Euro::operator + (const double & Eu)
 	return temp;
 }
 
-
 Euro& Euro::operator - (const Euro & E)
 {
 	Euro temp;
@@ -71,14 +68,13 @@ Euro& Euro::operator - (const Euro & E)
 	if (temp.whole <= 0){ temp.whole = 0; cout << "invalid operation/n"; }
 	return temp;
 }
-
 Euro& Euro::operator - (const double & Eu)
 {
 	Euro temp;
 	int y, z;
 	double x;
-	x += whole;
-	x += (frac * 100);
+	x += this->whole;
+	x += (this->frac * 100);
 
 	if (x <= 0 && Eu <= 0)
 		x -= Eu;

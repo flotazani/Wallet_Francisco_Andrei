@@ -7,7 +7,6 @@ Ruble::Ruble() : Currency("Ruble", "Kopeika", 0, 0)
 Ruble::Ruble(int w, int f):Currency("Ruble", "Kopeika", w, f)
 {
 }
-
 Ruble::Ruble(double x) : Currency("Ruble", "Cent", 0, 0)
 {
 	int y;
@@ -37,14 +36,13 @@ Ruble& Ruble::operator + (const Ruble & R)
 	}
 	return temp;
 }
-
 Ruble& Ruble::operator + (const double & Ru)
 {
 	Ruble temp;
 	int y, z;
 	double x;
-	x += whole;
-	x += (frac * 100);
+	x += this->whole;
+	x += (this->frac * 100);
 
 	if (x <= 0 && Ru <= 0)
 		x += Ru;
@@ -75,8 +73,8 @@ Ruble& Ruble::operator - (const double & Ru)
 	Ruble temp;
 	int y, z;
 	double x;
-	x += whole;
-	x += (frac * 100);
+	x += this->whole;
+	x += (this->frac * 100);
 
 	if (x <= 0 && Ru <= 0)
 		x -= Ru;

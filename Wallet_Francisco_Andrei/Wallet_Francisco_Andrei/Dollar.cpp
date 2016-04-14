@@ -43,9 +43,9 @@ Dollar& Dollar::operator + (const double & Do)
 {
 	Dollar temp;
 	int y, z;
-	double x  0;
-	x += whole;
-	x += (frac * 100);
+	double x = 0;
+	x += this->whole;
+	x += (this->frac * 100);
 
 	if (x <= 0 && Do <= 0)
 		x += Do;
@@ -77,8 +77,8 @@ Dollar& Dollar::operator - (const double & Do)
 	Dollar temp;
 	int y, z;
 	double x;
-	x += whole;
-	x += (frac * 100);
+	x += this->whole;
+	x += (this->frac * 100);
 
 	if (x <= 0 && Do <= 0)
 		x -= Do;
