@@ -1,27 +1,20 @@
 #pragma once
-#include <stdlib.h>
-#include <time.h>
+#include "Currency.h"
 #include "Dollar.h"
 #include "Euro.h"
 #include "Franc.h"
 #include "Hryvnia.h"
 #include "Ruble.h"
 
-enum money
-{
-	Dollar, Euro, Franc, Hryvnia, Ruble
-};
+using namespace std;
 class Wallet
-{
+{ // you have to put enums somewhere so we will be able to call elements ptr[Dollar] instead of ptr[2]
 private:
-	bool isEmpty, theresDollar, theresEuro, theresFranc, theresHryvnia, theresRuble;
-	int randNum;
-
+	Currency *ptr[5]; 
 public:
-	Wallet()
-	{
-		srand(time(NULL));
-		
-	}
+	Wallet();
+	Wallet(int, double);
+	Wallet(int, int, int);
 	~Wallet();
 };
+
