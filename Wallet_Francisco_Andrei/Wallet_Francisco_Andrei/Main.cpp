@@ -19,7 +19,7 @@ void addFunds(Wallet* & hermes)
 
 	while (!mainLoop)
 	{
-		cout <<endl<<
+		cout <<
 			"Select your currency:" << endl <<
 			"1. Dollar" << endl <<
 			"2. Euro" << endl <<
@@ -107,7 +107,7 @@ int main(){
 			 system("cls");
 			break;
 		case '2':
-			system("cls");
+			//system("cls");
 			checkFunds(hermes);
 			system("cls");
 			break;
