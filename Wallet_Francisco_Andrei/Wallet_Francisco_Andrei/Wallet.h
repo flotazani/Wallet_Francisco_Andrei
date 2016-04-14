@@ -12,10 +12,8 @@ class Wallet
 public:
 	Currency *ptr[5];
 	Wallet();
-	Wallet(char, double);
-	Wallet(char, int, int);
-	void addMoney(char, double);
-	void addMoney(char, int, int);
+	Wallet(int, double);
+	Wallet(int, int, int);
 
 	~Wallet();
 };

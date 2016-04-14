@@ -63,8 +63,9 @@ int Currency::getFrac()
 
 double Currency::getDouble()
 {
-	frac /= 100;
-	return frac + whole;
+	double x;
+	x = frac / 100;
+	return x + whole;
 }
 
 string Currency::getWholeName()

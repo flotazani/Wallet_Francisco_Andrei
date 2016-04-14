@@ -11,7 +11,7 @@ enum money
 
 void addFunds(Wallet &hermes)
 {
-	char selec;
+	int selec;
 	bool mainLoop = 0, subLoop = 0;
 	double value = 0;
 
@@ -60,16 +60,18 @@ void addFunds(Wallet &hermes)
 		}
 
 		selec--;
-		hermes.addMoney(selec, value);
+		hermes.ptr[selec]->setDouble(value);
 	}
 }
 
 void checkFunds(Wallet &hermes)
 {
+	string currencies[5] = { "Dollar", "Euro", "Franc", "Hryvnia", "Ruble" };
 	for (int c = 0; c < 4; c++)
 	{
-		cout << hermes.ptr[c]->getDouble();
+		cout << currencies[c] << ": " << hermes.ptr[c]->getDouble() << endl;
 	}
+	cout << endl;
 }
 
 int main(){
@@ -95,10 +97,14 @@ int main(){
 			cout << "Please enter a valid selection!";
 			break;
 		case '1':
+			system("cls");
 			 addFunds(hermes);
+			 system("cls");
 			break;
 		case '2':
+			system("cls");
 			checkFunds(hermes);
+			system("cls");
 			break;
 		case '3':
 			cout << "Goodbye!";
