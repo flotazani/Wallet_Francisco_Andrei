@@ -7,7 +7,6 @@ Hryvnia::Hryvnia() : Currency("Hryvnia", "Kopeika", 0, 0)
 Hryvnia::Hryvnia(int w, int f) : Currency("Hryvnia", "Kopeika", w, f)
 {
 }
-
 Hryvnia::Hryvnia(double x) : Currency("Hryvnia", "Cent", 0, 0)
 {
 	int y;
@@ -37,14 +36,13 @@ Hryvnia& Hryvnia::operator + (const Hryvnia & H)
 	}
 	return temp;
 }
-
 Hryvnia& Hryvnia::operator + (const double & Hr)
 {
 	Hryvnia temp;
 	int y, z;
 	double x;
-	x += whole;
-	x += (frac * 100);
+	x += this->whole;
+	x += (this->frac * 100);
 
 	if (x <= 0 && Hr <= 0)
 		x += Hr;
@@ -70,14 +68,13 @@ Hryvnia& Hryvnia::operator - (const Hryvnia & H)
 	if (temp.whole <= 0){ temp.whole = 0; cout << "invalid operation/n"; }
 	return temp;
 }
-
 Hryvnia& Hryvnia::operator - (const double & Hr)
 {
 	Hryvnia temp;
 	int y, z;
 	double x;
-	x += whole;
-	x += (frac * 100);
+	x += this->whole;
+	x += (this->frac * 100);
 
 	if (x <= 0 && Hr <= 0)
 		x -= Hr;
@@ -97,8 +94,8 @@ Hryvnia& Hryvnia::operator - (const double & Hr)
 		cout << "invalid operation" << endl;
 
 	return temp;
+}
 
-Hryvnia& Hryvnia::operator - (const double & Hr){}
 ostream& operator<<(ostream& os, const Hryvnia& H)
 {
 	os << H.whole << " Hryvnia " << H.frac << " Kopeika" << endl;

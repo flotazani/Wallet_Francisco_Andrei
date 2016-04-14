@@ -36,14 +36,13 @@ Franc& Franc::operator + (const Franc & F)
 	}
 	return temp;
 }
-
 Franc& Franc::operator + (const double & Fr)
 {
 	Franc temp;
 	int y, z;
 	double x;
-	x += whole;
-	x += (frac * 100);
+	x += this->whole;
+	x += (this->frac * 100);
 
 	if (x <= 0 && Fr <= 0)
 		x += Fr;
@@ -69,14 +68,13 @@ Franc& Franc::operator - (const Franc & F)
 	if (temp.whole <= 0){ temp.whole = 0; cout << "invalid operation/n"; }
 	return temp;
 }
-
 Franc& Franc::operator - (const double & Fr)
 {
 	Franc temp;
 	int y, z;
 	double x;
-	x += whole;
-	x += (frac * 100);
+	x += this->whole;
+	x += (this->frac * 100);
 
 	if (x <= 0 && Fr <= 0)
 		x -= Fr;
@@ -97,7 +95,6 @@ Franc& Franc::operator - (const double & Fr)
 
 	return temp;
 }
-Franc& Franc::operator - (const double & Fr){}
 
 ostream& operator<<(ostream& os, const Franc& F)
 {

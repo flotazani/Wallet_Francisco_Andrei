@@ -17,7 +17,7 @@ Currency<T>::Currency(string wn, string fn, int w, int f)
 	frac = f;
 }
 template < class T >
-void Currency::setWhole(int w)
+void Currency<T>::setWhole(int w)
 {
 	whole = w;
 }
